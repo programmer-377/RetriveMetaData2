@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>AnimalLocator</members>
+        <members>AccountProcessor</members>
+        <members>AsyncParkService</members>
         <name>ApexClass</name>
-    </types>
-    <types>
-        <members>working_with_tables</members>
-        <name>ApexPage</name>
     </types>
     <version>59.0</version>
 </Package>
