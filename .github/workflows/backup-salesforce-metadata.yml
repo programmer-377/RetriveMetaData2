@@ -24,6 +24,6 @@ jobs:
         with:
           SFDX_AUTH_URL: ${{ secrets.SFDX_AUTH_URL }}
           # SOURCE_DIR: force-app/main/default/classes
-          BRANCH_NAME: main
+          # BRANCH_NAME: main
           FORCE_PUSH: false
           MANIFEST_DIR  : manifest/package.xml
