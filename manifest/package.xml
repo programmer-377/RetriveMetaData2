@@ -4,5 +4,9 @@
         <members>AnimalLocator</members>
         <name>ApexClass</name>
     </types>
+    <types>
+        <members>working_with_tables</members>
+        <name>ApexPage</name>
+    </types>
     <version>59.0</version>
 </Package>
