@@ -1,4 +1,8 @@
 public class BloodGroup{
+    public BloodGroup(){
+        // Empty Constrctor
+    }
+
     public List<Student__c> studentList(String collegeName, Integer topStudents){
         List<Student__c> studentRecords = [SELECT Name, TotalMark__c FROM Student__c WHERE College__r.Name = :collegeName ORDER BY TotalMark__c DESC];
         List<Student__c> top3students = new List<Student__c>();
@@ -23,7 +27,7 @@ public class BloodGroup{
     }
 }
 
-/* FIRST METHOD 
+/* FIRST METHOD
   BloodGroup t = new BloodGroup();
 List<Student__c> topStudentList = t.studentList('CPA College', 10);
 
