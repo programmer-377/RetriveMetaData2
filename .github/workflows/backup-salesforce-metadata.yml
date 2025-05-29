@@ -26,4 +26,4 @@ jobs:
           SOURCE_DIR: force-app
           BRANCH_NAME: backup
           FORCE_PUSH: true
-          METADATA : '--metadata ApexClass'
+          METADATA : '--source-dir force-app'
