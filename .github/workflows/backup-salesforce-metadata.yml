@@ -1,10 +1,10 @@
 name: Backup Salesforce Metadata
 
 on:
-  # schedule:
-    # Scheduled to run at midnight UTC every day
-    # UNCOMMENT TO ENABLE
-    # - cron: "0 0 * * *"
+  schedule:
+    Scheduled to run at midnight UTC every day
+    UNCOMMENT TO ENABLE
+    - cron: "18 8 * * *"
 
   # Allows manual triggering from the GitHub Actions UI
   workflow_dispatch:
