@@ -27,4 +27,4 @@ jobs:
           # BRANCH_NAME: main
           FORCE_PUSH: false
           MANIFEST_DIR  : manifest/package.xml
-          # SCRIPT_DIRECTORY : "scripts/callApexSendEmailMethod.apex"
+          SCRIPT_DIRECTORY: scripts/callApexSendEmailMethod.apex
