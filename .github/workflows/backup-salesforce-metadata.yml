@@ -4,10 +4,10 @@ on:
   schedule:
     # Scheduled to run at midnight UTC every day
     # UNCOMMENT TO ENABLE
-    - cron: "35 3 * * *"
+    - cron: "36 3 * * *"
 
   # Allows manual triggering from the GitHub Actions UI
-  workflow_dispatch:
+  # workflow_dispatch:
 
 jobs:
   backup_metadata:
