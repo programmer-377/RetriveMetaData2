@@ -1,0 +1,15 @@
+name: Test Schedule Job
+
+on:
+  schedule:
+    # Scheduled to run at midnight UTC every day
+    # UNCOMMENT TO ENABLE
+    - cron: "*/5 * * * *"
+
+  # Allows manual triggering from the GitHub Actions UI
+  # workflow_dispatch:
+
+jobs:
+  backup_metadata:
+    runs-on: ubuntu-latest
+    environment: production
