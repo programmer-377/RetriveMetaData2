@@ -29,17 +29,17 @@ jobs:
           MANIFEST_DIR  : manifest/package.xml
           # SCRIPT_DIRECTORY: scripts/callApexSendEmailMethod.apex
 
-      - name: Authentication to salesforce
-        shell: bash
-        run: |
-            sf org login sfdx-url --set-default --sfdx-url-file <(echo "${{ secrets.SFDX_AUTH_URL }}")
+      # - name: Authentication to salesforce
+      #   shell: bash
+      #   run: |
+      #       sf org login sfdx-url --set-default --sfdx-url-file <(echo "${{ secrets.SFDX_AUTH_URL }}")
 
-      - name: Notify on Success
-        if: success()
-        run: | 
-          sf apex run --file scripts/callApexSendEmailMethod.apex
+      # - name: Notify on Success
+      #   if: success()
+      #   run: | 
+      #     sf apex run --file scripts/callApexSendEmailMethod.apex
       
-      - name: Notify on Failure
-        if: failure()
-        run: |
-          sf apex run --file scripts/callApexSendFailureEmailMethod.apex
+      # - name: Notify on Failure
+      #   if: failure()
+      #   run: |
+      #     sf apex run --file scripts/callApexSendFailureEmailMethod.apex
