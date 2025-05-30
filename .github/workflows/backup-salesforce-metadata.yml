@@ -4,7 +4,7 @@ on:
   schedule:
     # Scheduled to run at midnight UTC every day
     # UNCOMMENT TO ENABLE
-    - cron: "48 8,17 * * *"
+    - cron: "50 8 * * *"
 
   # Allows manual triggering from the GitHub Actions UI
   workflow_dispatch:
