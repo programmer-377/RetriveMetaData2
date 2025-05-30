@@ -1,2 +1,2 @@
 SendEmailFromGithubWorkflowAction sendEmailFromGitWorkFlow = new SendEmailFromGithubWorkflowAction();
-sendEmailFromGitWorkFlow.sendEmail('Success');
+sendEmailFromGitWorkFlow.sendEmail('Failure');
