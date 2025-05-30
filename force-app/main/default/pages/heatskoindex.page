@@ -1,0 +1,233 @@
+<apex:page applyHtmlTag="false" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0">
+    <apex:composition template="heatskotemplate">
+        <apex:define name="body">
+            <div id="home">
+                <div class="bg_img_home">
+                    <div class="home_logo text-center">
+                        <img class="logo_width" src="{!URLFOR($Resource.heatskoimages, 'homelogo.png')}" alt="home"/>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="pb-4 pt-4">
+                    <h1 class="text-center">WELCOME TO THE HEAT SKO 2016</h1>
+                </div>
+                <div>
+                    <p class="text-justify">
+                        We look forward to welcoming you to San Diego, California for an exciting meeting this year!We have an informative agenda planner for you to the Better.Faster.Stronger.<br/><br/>
+                        <b>Registration will be open from January 26,2015 until February 10,2015.</b> To register for HEAT Sales Kickoff,click on the "Register" link within the program webste to complete your registration. You will be asked to log in with your HEAT business email address to confirm your valid invitation.
+                        Please use only this HEAT email address for registration adminttance.<br/><br/>
+                        Thank you for your commitment and dedication to HEAT Software this past year. We look forward to seeing you in San Diego and spending time connecting as a team!<br/><br/><br/>
+                    </p>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-md-4 text-justify">
+                        <h3>DATE</h3>
+                        <p>Sunday,January 10th through<br/>
+                            Thursday,January 14th
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-justify">
+                        <h3>LOCATION</h3>
+                        <p>
+                            <span class="text_underline" >The Westin San Diego</span><br/>
+                            400 West Broadway<br/>
+                            San Diego,CA 92101 <span class="text_underline">(Directions)</span><br/>
+                            Telephone:1(619) &#160; 239-4500
+                        </p>
+                    </div>
+                    <div class="col-md-4 ">
+                        <h3>CONTACT US</h3>
+                        <p><span class="text_underline">Email Us</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="agenda_bg" id="agenda">
+                <div class="container">
+                    <div class="pb-4 pt-4">
+                        <h1 class="">AGENDA</h1>
+                        <p>Sunday,January 10th through Thursday,January 14th</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3>SUNDAY</h3>
+                            <p>
+                                Arivals<br/>
+                                Welcome Reception<br/><br/>
+                            </p>
+                            <h3>MONDAY</h3>
+                            <p>
+                                Group Breakfast<br/>
+                                General Session<br/>
+                                Group Lunch<br/>
+                                General Session<br/>
+                                HEAT Software Team Off-Site Evening Event<br/><br/>
+                            </p>
+                            <h3>TUESDAY</h3>
+                            <p>
+                                Group Breakfast<br/>
+                                General Session<br/>
+                                Breakouts<br/>
+                                Group Lunch<br/>
+                                Breakouts<br/>
+                                Awards Dinner<br/><br/>
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>WEDNESDAY</h3>
+                            <p>
+                                Group Breakfast<br/>
+                                General Session<br/>
+                                Breakouts<br/>
+                                Group LunchClosing General Session<br/>
+                                HEAT Software Team Final Night<br/><br/>
+                            </p>
+                            <h3>THURSDAY</h3>
+                            <p>
+                                Departures
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="calender_img" src="{!URLFOR($Resource.heatskoimages, 'calender.png')}" alt="event_calender"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-justify" id="destination">
+                <div class="pb-4 pt-4">
+                    <h1>DESTINATION</h1>
+                    <p>San Diego, California</p>
+                </div>
+                <div class="mb-4">
+                    <img class="desination_img" src="{!URLFOR($Resource.heatskoimages, 'destination.png')}" alt="destination_section"/>
+                </div>
+                <div class="mb-5">
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum culpa optio adipisci vero. Dignissimos, sint sequi sunt sit quo necessitatibus quia totam, omnis incidunt maxime, dolorem iusto aliquid ex explicabo.
+                        <br/><br/>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam sed blanditiis, nulla reprehenderit rem in! Excepturi nulla, deleniti tenetur, error autem quas nihil necessitatibus recusandae est veniam animi. Explicabo, alias? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis amet quasi labore incidunt perferendis aut quod, aspernatur eaque ipsam, velit numquam itaque voluptatem repellat modi eius minus maxime! Reiciendis, quia?
+                        <br/><br/>
+                    </p>
+                    <h3>WEATHER</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ab maxime incidunt voluptate voluptates repudiandae, aliquam provident! Unde, exercitationem. Vel minima rerum molestiae recusandae adipisci aut. Obcaecati, repellendus. Eius veniam inventore, repellendus optio nostrum, commodi iure quae molestiae officia dicta accusamus repellat culpa modi officiis sequi necessitatibus facere praesentium itaque blanditiis sunt esse ipsum! Earum facilis ab, explicabo consequuntur eveniet, rem similique assumenda ad rerum doloribus magni fugit ipsa omnis possimus ratione perspiciatis obcaecati, velit culpa vel tempora incidunt? Alias suscipit ab obcaecati expedita ex dolor sapiente nihil ipsam numquam quaerat nulla, natus id commodi distinctio perspiciatis reiciendis similique voluptate.
+                        <br/><br/>
+                    </p>
+                    <h3>TIME</h3>
+                    <p>
+                        Diego is on Pacifi Standard Time.<br/>
+                        In March, when it is 12:00 noon in San Diego, it is...
+                    </p>
+                    <ul>
+                        <li>12.00 noon in San Francisco</li>
+                        <li>3.00 p.m. in New York</li>
+                        <li>7.00 p.m. in London</li>
+                        <li>4.00 a.m. the next day in Tokyo</li>
+                        <li>3.00 a.m. the next day in Honk Kong</li>
+                    </ul>
+                    <br/>
+                    <h3>ATTIRE</h3>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius corrupti, minus laboriosam delectus, corporis, ad dignissimos eos accusantium quia voluptatum autem assumenda. Dignissimos optio incidunt consectetur, aliquid molestiae ut perspiciatis?
+                    </p>
+                </div>
+            </div>
+            <div class="hotel_bg" id="hotel">
+                <div class="container text-justify">
+                    <div class="pb-4 pt-4">
+                        <h1>HOTEL</h1>
+                        <p>The Westin San Diego</p>
+                    </div>
+                    <div class="mb-2">
+                        <img class="hotel_img" src="{!URLFOR($Resource.heatskoimages, 'hotel.png')}" alt="hotel image"/>
+                    </div>
+                    <div>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat cupiditate quasi perspiciatis vitae adipisci facilis quibusdam eaque accusantium impedit placeat! Debitis beatae obcaecati suscipit architecto vitae numquam amet voluptate id.
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3>HOTEL EXTENSIONS</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto sapiente error architecto a ratione dolorum. Ipsum eligendi consequuntur ullam enim consequatur esse tempore nostrum vitae, blanditiis aperiam possimus odit fugiat?</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>FEATURES</h3>
+                            <ul>
+                                <li>Complimentary inernet access in lobby and guest rooms</li>
+                                <li>24-Hour Security</li>
+                                <li>24-Hour WestinWORKOUT Fitness Studio</li>
+                                <li>Outdoor heated Lap Pool</li>
+                                <li>Outdoor Whirldpool Spa</li>
+                                <li>24-Hour Room Service</li>
+                                <li>Dry Cleaning Service</li>
+                                <li>Laundry/valet Service</li>
+                                <li>Coast Restaurant</li>
+                                <li>Aroma Cafe</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>DETAILS</h3>
+                            <img class="map_img" src="{!URLFOR($Resource.heatskoimages, 'hotelmap.png')}" alt="hotel_map"/> <br/><br/>
+                            <p>
+                                400 West Broadway<br/>
+                                San Diego, CA 92101<br/>
+                                <span class="text_underline">Directions</span><br/><br/>
+                                Telephone:(619) 239-4500<br/><br/>
+                                Check-in Time:3:00pm<br/>
+                                Check-out Time:12:00 noon<br/><br/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" id="travel">
+                <div class="pt-4 pb-4">
+                    <h1>TRAVEL</h1>
+                    <p>Travel Details and Transportation Information</p>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-md-6">
+                        <h3>AIR RESERVATIONS</h3>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui sequi soluta esse omnis eius, similique aliquam distinctio placeat quae! Molestiae? <br/><br/>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam ducimus quisquam possimus quasi commodi fuga, suscipit fugit pariatur, consequuntur voluptatum beatae dicta alias aliquam temporibus quia amet deserunt. Rem, recusandae?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui sequi soluta esse omnis eius, similique aliquam distinctio placeat quae! Molestiae?
+                        </p>
+                        <h3>RESTRICTIONS</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae repellendus, voluptatem ad doloribus amet et, quam assumenda saepe, necessitatibus praesentium natus odit. Ex perferendis, at necessitatibus sapiente animi laboriosam quas natus sed officia porro commodi. Magnam aliquid voluptates, dolore cupiditate iste reprehenderit obcaecati omnis, corrupti repudiandae nam amet fuga, beatae quaerat quasi doloribus ut laboriosam adipisci molestias! Commodi blanditiis hic, deserunt asperiores, excepturi assumenda rerum culpa tempore atque, accusantium suscipit! <br/><br/>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam voluptas perferendis ipsam ipsa saepe aliquam sed id libero, accusantium doloribus!
+                        </p>
+                        <h3>PASSPORTS &amp; VISAS</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat tenetur dolores minus, odio aspernatur ipsum debitis consectetur vero magnam autem? Obcaecati impedit, exercitationem nulla ipsum dolorum dolore voluptatibus fugit possimus! <br/><br/>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, necessitatibus accusantium. Voluptate mollitia iste adipisci animi minima dicta reiciendis doloribus distinctio magnam illum alias repudiandae accusamus, eligendi debitis aperiam nam fugit deleniti! Consequatur alias sint nesciunt ipsa praesentium odit labore!
+                        </p>
+                        <h3>CHANGES &amp; CANCELLATIONS</h3>
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut vitae maxime voluptatibus? Porro quasi dicta molestiae asperiores praesentium alias repellendus vero provident magnam delectus assumenda eius hic tenetur nisi dolorem soluta sapiente saepe nobis maiores quibusdam consectetur, iusto quia? Debitis atque sunt necessitatibus odit magnam <span class="text_underline">Kickoff Registration Team</span> <br/><br/>
+                            Please do not submit a new registration online <br/><br/>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci nihil et est quae labore deserunt minus iure aliquid dolore asperiores, sunt aliquam dolorum odit alias reiciendis animi repellat maxime odio nemo corporis expedita similique veniam voluptates! Eius voluptatem dicta nisi.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>LUGGAGE</h3>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, magni sit provident tenetur culpa, laudantium sunt quis vitae aliquam odio dignissimos esse quos reiciendis id debitis, cupiditate eligendi? Velit rerum cupiditate id fugit saepe reiciendis aperiam facilis quis, suscipit expedita aspernatur cum amet consequuntur quae? Officiis adipisci excepturi vitae incidunt!
+                        </p>
+                        <h3>AIRLINE CHECK-IN</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim quo harum ad, laborum cumque error quam deserunt incidunt quis voluptate sequi ullam minima, eligendi quod accusamus dicta ea praesentium. Temporibus totam suscipit repudiandae quidem cum autem veniam non earum provident ex quas ad, qui saepe nesciunt impedit doloribus, dolor eius aspernatur molestias possimus a fugiat officia. Animi, hic officia harum ea, dicta temporibus quod accusantium ipsam recusandae, minus asperiores laboriosam ab incidunt. Sit natus ratione suscipit eaque animi temporibus voluptas.
+                        </p>
+                        <h3>TRANSFERS</h3>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero vero fugit dicta recusandae asperiores nesciunt perferendis voluptate repudiandae expedita non. Eligendi officia sequi similique amet accusantium aspernatur vel, ratione obcaecati ducimus ea dolorem quam. Aut libero sapiente explicabo ullam soluta! <br/><br/>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus provident soluta dolores maiores quas eligendi cupiditate vero consectetur tenetur! Minima ad natus vero molestias laborum ex eaque laudantium illum ut? <br/><br/>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, tempore? Error dolorum perferendis libero. Doloremque, incidunt! Earum, architecto deserunt? Voluptatum?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </apex:define>
+    </apex:composition>
+</apex:page>

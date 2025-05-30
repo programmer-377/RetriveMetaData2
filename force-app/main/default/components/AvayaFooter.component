@@ -1,0 +1,15 @@
+<apex:component >
+    <footer >
+        <div class="footer_sec">
+            <div class="mb-4">
+                <p class="m-1">
+                    <b>Avaya CoE 2022 Registration Team</b>
+                </p>
+                Email: <a href="mailto:circle@avaya.com" class="text-decoration-none">circle@avaya.com</a>
+            </div>
+            <div>
+                <img src="{!URLFOR($Resource.avayaimages, 'avayalogo.png')}" alt="avayalogo"/>
+            </div>
+        </div>
+    </footer>
+</apex:component>

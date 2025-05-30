@@ -1,0 +1,125 @@
+<apex:page controller="ViewContactCtrl" sidebar="false" showHeader="false" standardStylesheets="false">
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <title>View Contacts</title>
+            <c:GenericScriptAndStyleCDN />
+        </head>
+        <body>
+            <div class="container">
+                <apex:outputPanel rendered="{!IF(AND(lstOfContacts != null, lstOfContacts.size > 0), false, true)}">
+                    <p style="color:red; font-weight:bold; text-align:center;font-size:34px;" class="py-5">
+                        Contact Records Not Available
+                    </p>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!IF(AND(lstOfContacts != null, lstOfContacts.size > 0), true, false)}">
+                    <h1 class="py-3">Contact Records</h1>
+                    <p class="mb-3"><b>Account Name :</b> {!acc.Name}</p>
+                    <apex:variable value="{!1}" var="count"/>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td style="text-align: center;">Serial No</td>
+                                <td>Name</td>
+                                <td>Contact <br/> <span style="font-size:10px;"><em>(Click the Below Link to View Discussions)</em></span></td>
+                                <td>Email</td>
+                                <td>Phone</td>
+                                <td>Fax</td>
+                                <td>Title</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!lstOfContacts}" var="con">
+                                <tr>
+                                    <td class="serial_no">{!count}</td>
+                                    <td>{!con.Name}</td>
+                                    <td><a href="listofdiscussionrecords?conId={!con.Id}" class="discussion_link">{!con.Name}</a></td>
+                                    <td><a href="mailto:{!con.Email}">{!con.Email}</a></td>
+                                    <td><a href="tel:{!con.Phone}">{!con.Phone}</a></td>
+                                    <td><a href="fax:{!con.Fax}">{!con.Fax}</a></td>
+                                    <td>{!con.Title}</td>
+                                </tr>
+                                <apex:variable value="{!count+1}" var="count"/>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+
+                    <div class="row py-5">
+                        <div class="col-sm-6">
+                            <a href="/{!acc.Id}" class="btn btn-primary back_btn">Back to Account Record</a>
+                        </div>
+                    </div>
+                </apex:outputPanel>
+            </div>
+        </body>
+    </html>
+    <style>
+        table{
+            width: 100%;
+        }
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 15px 10px;
+        }
+
+        table thead tr td{
+            font-weight: bold;
+        }
+
+        .container{
+            max-width: 1300px;
+        }
+
+        h1{
+            text-transform: uppercase;
+            font-size: 35px;
+        }
+
+        .serial_no{
+            text-align: center;
+        }
+
+        body{
+            background-color: #EDF5E1;
+        }
+        /* .container table thead{
+            background-color: #5CDB95;
+        }
+        .container table tbody{
+            background-color: #8EE4AF;
+        } */
+        .back_btn{
+            background-color: #ee4c7c;
+            border-color: #ee4c7c;
+            padding: 10px 23px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            border-radius: 30px;
+        }
+        .back_btn:hover{
+            background-color: #f7356f;
+            border-color: #f7356f;
+        }
+        .back_btn:focus{
+            border: none;
+            box-shadow: none;
+        }
+
+        a{
+            color: black;
+        }
+        a:hover{
+            color: black;
+        }
+
+        .discussion_link{
+            color:#007bff;
+        }
+        .discussion_link:hover{
+            color: #007bff;
+        }
+    </style>
+</apex:page>

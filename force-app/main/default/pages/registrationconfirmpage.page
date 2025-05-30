@@ -1,0 +1,11 @@
+<apex:page applyHtmlTag="false" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0" controller="RegMain">
+    <apex:composition template="registrationtesttemplate">
+        <apex:define name="body">   
+            <div class="container">
+                <h1 style="text-align: center">
+                    Congratulations for Registered this event
+                </h1>
+            </div>
+        </apex:define>
+    </apex:composition>
+</apex:page>

@@ -1,0 +1,76 @@
+<apex:page applyHtmlTag="false" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0">
+    <html>
+        <head>
+            <meta charset="UTF-8" />
+            <meta http-equiv="X-UA-Combitable" content="IE-edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />   
+            
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"/>
+            <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js">
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js">
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js">
+            </script>
+            <title>Event Registration</title>       
+            <style>
+                input[type=submit]{
+                    max-width: fit-content;
+                    width: 100%;
+                    color: white;
+                    background-color: purple;
+                    border-radius: 10px;
+                    padding: 10px 20px;
+                    outline: none;
+                    border: none;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    font-size: 18px;
+                }
+                h1{
+                	text-transform: uppercase !important;
+                	margin: 20px 0 30px 0;
+                }
+                select{
+                	margin-bottom: 20px;
+                    width: 44%;
+                    height: 50px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    padding-left: 5px;
+                    padding: 10px;
+                    font-size: 16px;
+                    font-family: 'Open Sans', sans-serif;
+                    color: #555;
+                    background-color: rgb(255, 255, 255);
+                    background-image: none;
+                    border: 1px solid rgb(41, 18, 18);
+                }
+                select>option{
+                    font-family: 'Open Sans', sans-serif;
+                    color: #555;
+                    background-color: rgb(247, 247, 247);
+                    background-image: none;
+                    font-size: 16px;
+                    height: 50px;
+                    padding: 15px;
+                    border: 1px solid rgb(41, 18, 18);
+                	text-align: center;
+                }
+            </style>
+        </head>
+        <body>
+            <div id="wrapper">
+                <div id="header">
+                    <c:registration_header />
+                </div>
+                <div id="page">
+                    <apex:insert name="body"/>
+                </div>
+                <div id="footer">
+                    <c:registration_footer />
+                </div>
+            </div>
+        </body>
+    </html>
+</apex:page>

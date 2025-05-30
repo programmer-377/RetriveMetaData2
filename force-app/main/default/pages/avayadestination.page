@@ -1,0 +1,106 @@
+<apex:page applyHtmlTag="false" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0">
+    <apex:composition template="avayatemplate">
+        <apex:define name="body">
+            <div>
+                <div class="destin_home_bg">
+                    <div class="destin_home_logo _container">
+                        <img class="header_logo" src="{!URLFOR($Resource.avayaimages, 'headerlogo.png')}" alt="logo"/>
+                    </div>
+                    <img class="jeep_img_div jeep_img" src="{!URLFOR($Resource.avayaimages, 'JEEP.png')}" alt="jeep"/>
+                </div>
+            </div>
+            <div class="destin_bg">
+                <div class="_container">
+                    <div class="h_line mb-3">
+                        <h1>DESTINATION</h1>
+                    </div>
+                    <p class="text-justify destin_content">
+                        Winners will be hosted at the Four Seasons Safari Lodge Serengati, November 28 December 3,2022. Join us deep in the heart of the world's most celebrated wildlife reserves, where the Big Five-the lion, the leopard, the buffalo, the elephant and the rhinoceros-run free on the endless, untamed landscape. Perched on a series of elevated platforms and walkways, our Lodge sits next to an animal watering hole, where you can watch a family of elephants stp for their morning drink as you sip your own out on your room's private balcony. Under the constant protection of local Maasai tribes people, we'll take you in the bush for an exhilarating game drive, and celebrate your acheivements in the evenings with special private events.
+                    </p>
+                </div>
+            </div>
+            <div class="time_zone_sec">
+                <div class="time_zone_container">
+                    <div class="time_zone_div_bg">
+                        <div class="h_line mb-3">
+                            <h1>TIME ZONES</h1>
+                        </div>
+                        <p>
+                            Serengati, Tanzania is in the East Africa Time Zone (GMT +3).
+                            When it is 1:00pm November 28 in Tanzania, it is:
+                            <br/>
+                            3.00 AM (Nov.27) San Francisco &#160; 11:00 AM (Nov.27)London<br/>
+                            4.00 AM (Nov.27) Denver &#160; 12:00 PM (Nov.27)Rome<br/>
+                            5.00 AM (Nov.27) Chicago &#160; 6:00 PM (Nov.28)Hong Kong<br/>
+                            6.00 AM (Nov.27) New York &#160; 7:00 PM (Nov.28)Tokyo<br/>
+                        </p>
+                    </div>
+                </div>
+                <img class="girafee_img_div girafee_img" src="{!URLFOR($Resource.avayaimages, 'Giraffes.png')}" alt="Giraffe"/>
+            </div>
+            <div class="three_shield_sec">
+                <div class="three_shield_container">
+                    <div class="row">
+                        <div class="col-md-4 mb-5">
+                            <img src="{!URLFOR($Resource.avayaimages, 'climate.png')}" alt="climate"/>
+                            <h3>CLIMATE</h3>
+                            <p>
+                                Tanzania has a tropical climate that varies by region and altitude. The coast is generally hot nd humid, while the low-lying parks are dryer and cooler, Daily high temperatures are around 87°F, rarely falling below 84°F or exceeding 90°F.
+                            </p>
+                        </div>
+                        <div class="col-md-4 mb-5">
+                            <img class="lang_img" src="{!URLFOR($Resource.avayaimages, 'language.png')}" alt="language"/>
+                            <h3>LANGUAGES</h3>
+                            <p>
+                                English and Swahilli are the primary languages spoken in Tanzania. Both the Gran Melia and Four Seasons Safari Lodge Serengeti offer language support. 
+                            </p>
+                        </div>
+                        <div class="col-md-4 mb-5">
+                            <img class="currency_img" src="{!URLFOR($Resource.avayaimages, 'currency.png')}" alt="currency"/>
+                            <h3>CURRENCY</h3>
+                            <p>
+                                The official currency in Tanzania is the <b>Tanzanian shilling. </b>The written abbrevation is either Tsh of /=. Notes are 200, 500, 1,000, 5,000 and 10,000,while coins are 50, 10, and 20. Please see <a href="https://www.xe.com/" target="_blank">https://www.xe.com/</a> for the current exchange rate.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom_sec">
+                <div class="bottom_sec_container">
+                    <div class="bottom_div_bg">
+                        <div class="mb-4">
+                            <div class="h_line mb-3">
+                                <h1>INTERNET AND ELECTRICITY</h1>
+                            </div>
+                            <p>
+                                Internet access will be provided to you while you are on Four Seasons. Plug adapters and voltage converters are recommended for those travelling internationally and can be purchased at travel stores in your home country.
+                            </p>
+                        </div>
+                        <div class="mb-4">
+                            <div class="h_line mb-3">
+                                <h1>AIR TRAVEL</h1>
+                            </div>
+                            <p>
+                                A representative from our air department will work directly with you to book your roundrip airface. 
+                                <br/><br/>
+                                Per FAA regulations, all passengers travelling outside of the United States must present a negative PCR Covid-19 test taken within 72 hours of their departure time. 
+                                <br/><br/>
+                                All Passengers are required to wear a mask covering their nose and mouth while inside the airport and on the aircragt, unless actively eating and drinking. It is recommended that due to the long duration of flight, attendees bring 4-5 masks, so they are able to change into a fresh mask every few hours on the flight.
+                                <br/><br/>
+                            </p>
+                        </div>
+                        <div class="passport_visa_div mb-4">
+                            <div class="h_line mb-3">
+                                <h1>PASSPORTS AND VISAS</h1>
+                            </div>
+                            <p>
+                                If you are travelling internationally to gain entry into Hawaii, you will need to travel with your passport, as well as your proof of vaccination and/or negative Covid-19 test results.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <img class="two_monk_img_div two_monk_img" src="{!URLFOR($Resource.avayaimages, '2monk.png')}" alt="monk"/>
+            </div>
+        </apex:define>
+    </apex:composition>
+</apex:page>

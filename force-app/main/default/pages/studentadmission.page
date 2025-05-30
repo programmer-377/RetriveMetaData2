@@ -1,0 +1,97 @@
+<apex:page applyHtmlTag="false" controller="StudentAdmissionHome" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0">
+    <apex:composition template="cmstemplate">
+        <apex:define name="body">
+            <div class="container py-5">
+                <apex:form id="form_Id" html-novalidate="novalidate">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <apex:outputLabel value="College Name*"/>
+                                <apex:actionRegion >
+                                    <apex:selectList value="{!selectedCollegeName}" size="1">
+                                        <apex:selectOptions value="{!collegeList}"/>
+                                        <apex:actionSupport event="onchange" action="{!getDepartmentList}" reRender="deptAndOtherDetailsPanelID"/>
+                                    </apex:selectList>
+                                </apex:actionRegion>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <apex:outputPanel id="deptAndOtherDetailsPanelID">
+                                <div class="form-group">
+                                    <apex:outputPanel rendered="{!showDepartments}" layout="none">
+                                        <apex:outputLabel value="Department Name*"/>
+                                        <apex:selectList value="{!selectedDepartmentName}" size="1">
+                                            <apex:selectOptions value="{!departmentList}"/>
+                                            <apex:actionSupport event="onchange" action="{!getDepartmentList}" reRender="deptAndOtherDetailsPanelID"/>
+                                        </apex:selectList>
+                                    </apex:outputPanel>
+                                </div>
+                            </apex:outputPanel>
+                        </div>
+                    </div>
+                    <div  class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <apex:outputLabel value="Salutation*"/>
+                                <apex:inputField value="{!con.Salutation}"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <apex:outputLabel value="Student First Name*"/>
+                                <apex:inputField value="{!con.FirstName}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div  class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <apex:outputLabel value="Student Last Name*"/>
+                                <apex:inputField value="{!con.FirstName}"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <apex:outputLabel value="Gener"/>
+                                <apex:inputField value="{!con.Gender__c}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div  class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <apex:outputLabel value="Date of Birth*"/>
+                                <apex:inputField value="{!con.DOB__c}"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <apex:outputLabel value="Phone*"/>
+                                <apex:inputField value="{!con.Phone}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div  class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <apex:outputLabel value="Email*"/>
+                                <apex:inputField value="{!con.Email}"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <apex:outputLabel value="Blood Group*"/>
+                                <apex:inputField value="{!con.Blood_Group__c}"/>
+                            </div>
+                        </div>
+                    </div>
+                </apex:form>
+            </div>
+            <style>
+                label{
+                    display: block;
+                }
+            </style>
+        </apex:define>
+    </apex:composition>
+</apex:page>

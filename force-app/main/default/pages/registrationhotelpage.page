@@ -1,0 +1,50 @@
+<apex:page applyHtmlTag="false" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0" controller="RegMain">
+    <apex:composition template="registrationtesttemplate">
+        <apex:define name="body">   
+            <div class="container">
+                <h1 style="text-align: center">
+                    Hotel Information
+                </h1>
+                <apex:form >
+                    <apex:actionRegion >
+                        <label>Are You Extend Your Trip</label>
+                        <apex:inputField value="{!lod.Are_You_Extend_Your_Trip__c}">
+                            <apex:actionSupport event="onchange" reRender="datePanel"/>
+                        </apex:inputField>
+                    </apex:actionRegion>
+
+                    <apex:variable value="{!lod.Are_You_Extend_Your_Trip__c == 'Pre Extend'}" var="preextent"/>
+                    <apex:variable value="{!lod.Are_You_Extend_Your_Trip__c == 'Post Extend'}" var="postextent"/>
+                    <apex:variable value="{!lod.Are_You_Extend_Your_Trip__c == 'Pre and Post Extend'}" var="preandpostextent"/>
+
+                    <apex:outputPanel id="datePanel">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label>Arrival Date</label>
+                                <apex:selectList value="{!lod.Preferred_Arrival_Date__c}">
+                                    <apex:selectOption itemValue="05/01/2023" itemLabel="05/01/2023" rendered="{!preextent }"/>
+                                    <apex:selectOption itemValue="05/02/2023" itemLabel="05/02/2023" rendered=""/>
+                                    <apex:selectOption itemValue="05/03/2023" itemLabel="05/03/2023" rendered=""/>
+                                    <apex:selectOption itemValue="05/04/2023" itemLabel="05/04/2023" rendered=""/>
+                                </apex:selectList>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <label>Departure Date</label>
+                                <apex:selectList value="{!lod.Preferred_Departure_Date__c}">
+                                    <apex:selectOption itemValue="05/05/2023" itemLabel="05/05/2023" rendered="{!preextent }"/>
+                                    <apex:selectOption itemValue="05/06/2023" itemLabel="05/06/2023" rendered=""/>
+                                    <apex:selectOption itemValue="05/07/2023" itemLabel="05/07/2023" rendered=""/>
+                                    <apex:selectOption itemValue="05/08/2023" itemLabel="05/08/2023" rendered=""/>
+                                </apex:selectList>
+                            </div>
+                        </div>
+
+                        
+                    </apex:outputPanel>
+                    <apex:commandButton action="{!SaveAndGoToPageFour}" value="Save & Continue"/>
+                </apex:form>
+            </div>
+        </apex:define>
+    </apex:composition>
+</apex:page>

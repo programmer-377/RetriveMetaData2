@@ -1,0 +1,32 @@
+<apex:page applyHtmlTag="false" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0" controller="RegMain">
+    <apex:composition template="registrationtesttemplate">
+        <apex:define name="body">   
+            <div class="container">
+                <h1 style="text-align: center">
+                    Attendee Information
+                </h1>
+                <apex:form >
+                    <div class="regform">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <apex:outputLabel >Your Guest Attending this Event*</apex:outputLabel><br/>
+                                <apex:inputField value="{!reg.You_will_Bring_a_Guest__c}" required="true"/>
+                            </div>
+                            <div class="col-sm-6">
+                                <apex:outputLabel >Your Need Hotel Accomodation*</apex:outputLabel><br/>
+                                <apex:inputField value="{!reg.You_Will_Need_Special_Accomodations__c}" required="true"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <apex:outputLabel >Your Need Air Travel*</apex:outputLabel><br/>
+                                <apex:inputField value="{!reg.You_Will_Need_Air_Travel__c}" required="true"/>
+                            </div>
+                        </div>
+                    </div>
+                    <apex:commandButton action="{!SaveAndGoToPageTwo}" value="Save & Continue"/>
+                </apex:form>
+            </div>
+        </apex:define>
+    </apex:composition>
+</apex:page>

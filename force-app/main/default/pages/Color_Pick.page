@@ -1,0 +1,118 @@
+<apex:page applyHtmlTag="false" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0">
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Color Filter</title>
+        <style>
+            .container{
+                width: 100%;
+                max-width: 70%;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .colors{
+                display: flex;
+                justify-content:center;
+                height: 60px;
+            }
+            .colors div{
+                width: 60px;
+                height: 60px;
+                margin: 10px;
+                display: block;
+            }
+            .red_color{
+                background-color: red;
+            }
+            .green_color{
+                background-color: green;
+            }
+            .blue_color{
+                background-color: blue;
+            }
+            .black_color{
+                background-color: black;
+            }
+            .check_boxes{
+                margin: 30px 10px;
+            }
+            .check_boxes input{
+                margin-right: 30px;
+            }
+            .hide{
+                display: none !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="colors">
+                <div class="red_color"></div>
+                <div class="red_color"></div>
+                <div class="red_color"></div>
+                <div class="green_color"></div>
+                <div class="green_color"></div>
+                <div class="green_color"></div>
+                <div class="green_color"></div>
+                <div class="blue_color"></div>
+                <div class="blue_color"></div>
+                <div class="black_color"></div>
+            </div>
+            <div class="check_boxes">
+                <label for="Red">Red</label>
+                <input type="checkbox" name="Red" id="red" class="cbox" onclick="showColorElem()"/>
+                <label for="Green">Green</label>
+                <input type="checkbox" name="Green" id="green" class="cbox" onclick="showColorElem()"/>
+                <label for="Blue">Blue</label>
+                <input type="checkbox" name="Blue" id="blue" class="cbox" onclick="showColorElem()"/>
+                <label for="Black">Black</label>
+                <input type="checkbox" name="Black" id="black" class="cbox" onclick="showColorElem()"/>
+                <label for="All Colors">All Colors</label>
+                <input type="checkbox" name="All Colors" id="all" class="cbox" onclick="clickAllColor()"/>
+            </div>
+        </div>
+        <script>
+            function showColorElem(){
+                let checkBoxes = document.querySelectorAll('.check_boxes input');
+                document.querySelector('#all').checked = false;
+                for(let box of checkBoxes){
+                    if(box.checked == false){
+                        let divElem = document.querySelectorAll(`.${box.id}_color`);
+                        for(let elem of divElem){
+                            elem.classList.add("hide");
+                        }
+                    }else{
+                        let divElem = document.querySelectorAll(`.${box.id}_color`);
+                        for(let elem of divElem){
+                            elem.classList.remove("hide");
+                        }
+                    }
+                }
+                let countVar = 0;
+                for(let count of checkBoxes){
+                    if(count.checked){
+                        countVar++;
+                    }
+                }
+                if(countVar == 0){
+                    for(let box of checkBoxes){
+                        let divElem = document.querySelectorAll(`.${box.id}_color`);
+                        for(let elem of divElem){
+                            elem.classList.remove("hide");
+                        }
+                    }
+                }
+            }
+
+            function clickAllColor(){
+                let allColor = document.querySelectorAll('.colors div');
+                let colors = document.querySelectorAll('#red, #green, #blue, #black');
+                for(let color of allColor)color.classList.remove("hide");
+                for(let CBox of colors)CBox.checked = false;
+            }
+        </script>
+    </body>
+    </html>
+</apex:page>

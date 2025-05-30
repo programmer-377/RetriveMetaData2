@@ -1,0 +1,331 @@
+<apex:page applyHtmlTag="false" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0">
+    <apex:composition template="citrixtemplate">
+        <apex:define name="body">
+            <div class="welcome_bg">
+                <div class="date_and_place">
+                    <p>OCTOBER 10-12, 2018 <span class="font_size_for_dot hide_text">.</span><span>ROME, ITALY</span></p>
+                </div>
+                <div class="welcome_sec_head">
+                    <img src="{!URLFOR($Resource.citrixpageimages, 'welcome.png')}" alt="welcome_icon"/>
+                    <h1>WELCOME</h1>
+                </div>
+                <p class="welcome_sec_content">
+                    Welcome to Citrix Advisory Board. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia vero eos perferendis nostrum omnis assumenda fugiat, impedit nulla aspernatur tempore tenetur laborum sed quidem porro beatae voluptates! Nemo hic quam et natus sint reprehenderit aliquid labore obcaecati, ea, rerum, a itaque at fuga voluptas odio adipisci commodi dolore? Nostrum est perspiciatis sunt repellat. Veritatis minima, ipsum autem officiis, dignissimos tempore consectetur quisquam soluta ratione, placeat magni ad eius. Vel, sapiente incidunt. Voluptas distinctio tempora quos vitae perferendis, nihil, sed a, iusto reiciendis dicta quasi blanditiis facilis doloremque! Quae, blanditiis. Iste illo magni incidunt placeat perspiciatis non, commodi praesentium! Tempora, sequi Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore iure, debitis tempore praesentium fugiat pariatur distinctio aut beatae quam saepe cumque labore repellendus deleniti libero nobis dicta sapiente cupiditate rem assumenda id facilis a dolorum, eius nemo! In aliquid, nobis quasi quos quas perspiciatis vero maiores, nisi veritatis blanditiis sit?
+                </p>
+            </div>
+            <div class="destination_bg" id="destination">
+                <div class="destination_sec">
+                    <img src="{!URLFOR($Resource.citrixpageimages, 'destination.png')}" alt="Destination"/>
+                    <h1>DESTINATION</h1> 
+                </div>
+                <p class="destination_sec_content">
+                    Welcome to Rome, Italy! Rome is an amazing destionation Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dolorem, possimus alias, cum praesentium nostrum temporibus ratione sapiente eveniet ipsa aspernatur officia, non dicta tempora eligendi perspiciatis! Perspiciatis eius, itaque saepe ipsam corrupti consequatur. Vel doloremque laborum fugiat totam, tempora nulla optio quos, molestias, eligendi culpa delectus voluptatem doloribus asperiores? Deserunt fuga facere adipisci laboriosam numquam minus neque suscipit, tempora, incidunt totam blanditiis deleniti hic consequatur qui delectus repudiandae? Officia cum, ex illum aliquam quis est natus eaque accusamus aliquid! Culpa iste corporis ullam accusamus earum obcaecati. Molestiae eos totam fugit nostrum doloribus vero praesentium, accusantium odit expedita aperiam vel earum, repellendus et. Maxime quo voluptatibus quis? Quae, tempora! Libero, quos quis. Quos neque ex ullam molestias quisquam sint alias facilis modi eligendi perspiciatis laudantium harum quasi excepturi ipsam, ad amet voluptatum saepe exercitationem dolores. Doloremque, sint error consectetur odit omnis doloribus eligendi nostrum modi quasi, enim accusamus, aliquid itaque.
+                    <br/><br/>
+                    <b>Temperatures in October</b><br/>
+                    Average High - 72°F<br/>
+                    Average Low -53°F<br/>
+                    Average Rainfall-3.1 inches
+                    <br/><br/>
+                    <b>Approximte Travel Time</b><br/>
+                    San Francisco-12 hours<br/>
+                    new york-7 hours<br/>
+                    London-2 hours<br/>
+                </p>
+            </div>
+            <div class="hotel_info_sec" id="hotelinfo">
+                <div class="hotel_info_head">
+                    <img class="hotel_icon" src="{!URLFOR($Resource.citrixpageimages, 'hotel.png')}" alt="Hotel_icon"/>
+                    <h1>HOTEL INFORMATION</h1>
+                </div>
+                <div class="hotel_sec">
+                    <p>
+                        The Hotel de Russie is ideally located in Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo nesciunt aut quaerat minima est libero excepturi atque ut odit cupiditate nostrum eligendi qui, mollitia quasi, officiis itaque eos assumenda corrupti iure corporis, doloremque voluptatum amet magni. Ducimus rem quae, dolore obcaecati sunt tempore nisi voluptates quia optio molestiae consectetur ipsa quisquam et cum voluptatibus atque earum animi iure, eius, nam dicta minus? Nesciunt iure vero ducimus autem repudiandae, cumque dolorem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab iusto enim illum suscipit asperiores ipsum voluptates quae dolor temporibus iste quasi adipisci commodi, repellat neque culpa fugit perferendis sit atque blanditiis vitae nam dicta. Similique eius quibusdam nihil libero quae ratione accusamus reiciendis. Illo minima quasi quam unde eum? Beatae!
+                        <br/><br/>
+                        <b>Location :&amp; Contact Info</b><br/>
+                        <b>Hotel de Russie</b><br/>
+                        Via del Babuino, 9<br/>
+                        00187 Roma RM, Italy<br/>
+                        +39 06 328881<br/>
+                        <a href="https://www.roccofortehotels.com/hotels-and-resorts/hotel-de-russie/">https://www.roccofortehotels.com/hotels-and-resorts/hotel-de-russie/</a><br/>
+                    </p>
+                </div>
+                <div class=" hotel_img_sec text-center">
+                    <div class="d-inline">
+                        <img src="{!URLFOR($Resource.citrixpageimages, 'hotel-1.png')}" alt="Hotel_image"/>
+                    </div>
+                    <div class="d-inline">
+                        <img src="{!URLFOR($Resource.citrixpageimages, 'hotel-2.png')}" alt="Hotel_image"/>
+                    </div>
+                    <div class="d-inline">
+                        <img src="{!URLFOR($Resource.citrixpageimages, 'hotel-3.png')}" alt="Hotel_image"/>
+                    </div>
+                </div>
+            </div>
+            <div class="agenda_sec_bg" id="dailyagenda">
+                <div class="daily_agenda_sec">
+                    <img src="{!URLFOR($Resource.citrixpageimages, 'agenda.png')}" alt="daily_agenda"/>
+                    <h1>DAILY AGENDA</h1>
+                </div>
+                <div class="container">
+                    <div class="daily_agenda_container">
+                        <div class="navigation_bar_bg">
+                            <div>
+                                <ul class="nav nav-pills justify-content-between" id="myTab" role="tablist">
+                                    <li class="nav-item tab_width text-center text-break"><a class="nav-link active" id="home-tab" data-toggle="tab" href="#wednesday" role="tab" aria-controls="home" aria-selected="true"> <b>WED<span class="hide_text">NESDAY</span></b> <br/> OCT 10 <span class="hide_text">2018</span></a></li> 
+                                    <li class="nav-item tab_width text-center text-break"><a class="nav-link" id="profile-tab" data-toggle="tab" href="#thursday" role="tab" aria-controls="profile" aria-selected="false"> <b>THU<span class="hide_text">RSDAY</span></b> <br/> OCT 11 <span class="hide_text">2018</span></a></li> 
+                                    <li class="nav-item tab_width text-center text-break"><a class="nav-link" id="contact-tab" data-toggle="tab" href="#friday" role="tab" aria-controls="contact" aria-selected="false"> <b>FRI<span class="hide_text">DAY</span></b> <br/> OCT 12 <span class="hide_text">2018</span></a></li> 
+                                    <li class="nav-item tab_width text-center text-break"><a class="nav-link" id="contact-tab" data-toggle="tab" href="#saturday" role="tab" aria-controls="contact" aria-selected="false"> <b>SAT<span class="hide_text">URDAY</span></b> <br/> OCT 13 <span class="hide_text">2018</span></a></li>     
+                                </ul>
+                            </div>
+                            <div class="tab-content mb-4">
+                                <div class="tab-pane fade show active" id="wednesday" role="tabpanel">
+                                    <table class="table">
+                                        <tr>
+                                            <td class="td_width">
+                                                <p>
+                                                    <b>All Day</b> <br/>
+                                                    Arrival of attendees
+                                                </p>
+                                            </td>
+                                            <td>
+                                                All Day
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>
+                                                    <b>Afternoon</b><br/>
+                                                    Registraion
+                                                </p>
+                                            </td>
+                                            <td>
+                                                12:00 pm - 6:00 pm
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>
+                                                    <b>Evening</b><br/>
+                                                    Dinner on own
+                                                </p>
+                                            </td>
+                                            <td>
+                                                Evening
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="thursday" role="tabpanel">
+                                    <table class="table">
+                                        <tr>
+                                            <td class="td_width">
+                                                <p>
+                                                    <b>All Day</b> <br/>
+                                                    Arrival of attendees
+                                                </p>
+                                            </td>
+                                            <td>
+                                                All Day
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>
+                                                    <b>Afternoon</b><br/>
+                                                    Registraion
+                                                </p>
+                                            </td>
+                                            <td>
+                                                12:00 pm - 6:00 pm
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>
+                                                    <b>Evening</b><br/>
+                                                    Dinner on own
+                                                </p>
+                                            </td>
+                                            <td>
+                                                Evening
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="friday" role="tabpanel">
+                                    <table class="table">
+                                        <tr>
+                                            <td class="td_width">
+                                                <p>
+                                                    <b>All Day</b> <br/>
+                                                    Arrival of attendees
+                                                </p>
+                                            </td>
+                                            <td>
+                                                All Day
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>
+                                                    <b>Afternoon</b><br/>
+                                                    Registraion
+                                                </p>
+                                            </td>
+                                            <td>
+                                                12:00 pm - 6:00 pm
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>
+                                                    <b>Evening</b><br/>
+                                                    Dinner on own
+                                                </p>
+                                            </td>
+                                            <td>
+                                                Evening
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="saturday" role="tabpanel">
+                                    <table class="table">
+                                        <tr>
+                                            <td class="td_width">
+                                                <p>
+                                                    <b>All Day</b> <br/>
+                                                    Arrival of attendees
+                                                </p>
+                                            </td>
+                                            <td>
+                                                All Day
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>
+                                                    <b>Afternoon</b><br/>
+                                                    Registraion
+                                                </p>
+                                            </td>
+                                            <td>
+                                                12:00 pm - 6:00 pm
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>
+                                                    <b>Evening</b><br/>
+                                                    Dinner on own
+                                                </p>
+                                            </td>
+                                            <td>
+                                                Evening
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="travel_info_container" id="travelinfo">
+                <div class="travel_sec">
+                    <img src="{!URLFOR($Resource.citrixpageimages, 'travel.png')}" alt="Travel_icon"/>
+                    <h1>TRAVEL INFORMATION</h1>
+                </div>
+                <div class="container">
+                    <div class="card card_layout">
+                        <div class="card-header">
+                            <img src="{!URLFOR($Resource.citrixpageimages, 'plus.png')}" alt=""/>
+                            <a class="card-link card_name" data-toggle="collapse" href="#airtravel">&#160;&#160;Air Travel</a>
+                        </div>
+                        <div id="airtravel" class="collapse">
+                            <p class="card-body card_content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quod aliquam saepe, dolorum molestias optio et suscipit earum modi sequi natus qui unde dolor explicabo velit praesentium. Ipsam, voluptatibus necessitatibus.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card_layout">
+                        <div class="card-header">
+                            <img src="{!URLFOR($Resource.citrixpageimages, 'plus.png')}" alt=""/>
+                            <a class="card-link card_name" data-toggle="collapse" href="#passportvisa">&#160;&#160;Passports &amp; Visas</a>
+                        </div>
+                        <div id="passportvisa" class="collapse">
+                            <p class="card-body card_content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, exercitationem fuga suscipit ipsa itaque accusantium vel. Reprehenderit assumenda quisquam voluptas iure illum. Laboriosam doloremque recusandae sint nemo amet, eius laborum?
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card_layout">
+                        <div class="card-header">
+                            <img src="{!URLFOR($Resource.citrixpageimages, 'plus.png')}" alt=""/>
+                            <a class="card-link card_name" data-toggle="collapse" href="#checkin">&#160;&#160;Airline Check-in</a>
+                        </div>
+                        <div id="checkin" class="collapse">
+                            <p class="card_content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde repellendus quae at cupiditate reprehenderit velit laudantium enim et totam deserunt rem earum, sint autem consequuntur tempora, vel dicta accusantium perferendis!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card_layout">
+                        <div class="card-header">
+                            <img src="{!URLFOR($Resource.citrixpageimages, 'plus.png')}" alt=""/>
+                            <a class="card-link card_name" data-toggle="collapse" href="#luggage">&#160;&#160;Luggage</a>   
+                        </div>
+                        <div id="luggage" class="collapse">
+                            <p class="card_content">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio ratione facere cupiditate tempore amet, delectus quisquam eveniet cum dolores ipsum ex voluptatibus quo harum consequuntur reprehenderit, temporibus quaerat rerum ullam.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card_layout">
+                        <div class="card-header">
+                            <img src="{!URLFOR($Resource.citrixpageimages, 'plus.png')}" alt=""/>
+                            <a class="card-link card_name" data-toggle="collapse" href="#transfers">&#160;&#160;Transfers</a>
+                        </div>
+                        <div id="transfers" class="collapse">
+                            <p class="card_content">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias autem deserunt possimus eligendi temporibus, nulla neque vel aliquid dolore consequuntur eaque voluptatum excepturi nesciunt quos commodi obcaecati itaque repellendus numquam?
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card_layout">
+                        <div class="card-header">
+                            <img src="{!URLFOR($Resource.citrixpageimages, 'plus.png')}" alt=""/>
+                            <a class="card-link card_name" data-toggle="collapse" href="#changes">&#160;&#160;Changes &amp; Cancellations</a>
+                        </div>
+                        <div id="changes" class="collapse">
+                            <p class="card_content">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab sint, porro aspernatur nisi officia sit. Nisi dolores, nesciunt sed rerum non, alias fugit ratione odit, repellat explicabo vel asperiores in!
+                            </p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div id="faq">
+                <div class="faq_sec">
+                    <img class="faq_icon" src="{!URLFOR($Resource.citrixpageimages, 'faq.png')}" alt="FAQ"/>
+                    <h1>FREQUENTLY ASKED QUESTIONS</h1>
+                </div>
+                <div class="container">
+                    <p class="faq_content">
+                        <b class="faq_color">Q.&#160;</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio eveniet, sed nostrum temporibus delectus ad neque expedita, quos perferendis dignissimos sint maiores qui odit perspiciatis quod possimus? Rerum, magnam optio?
+                        <br/><br/>
+                        <b class="faq_content">A.&#160;</b> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis voluptas harum explicabo facere sequi delectus sit odio nesciunt sapiente quaerat debitis ipsum repellendus animi id suscipit accusantium, doloribus blanditiis exercitationem!
+                        <br/><br/><br/>
+                        <b class="faq_color">Q.&#160;</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio eveniet, sed nostrum temporibus delectus ad neque expedita, quos perferendis dignissimos sint maiores qui odit perspiciatis quod possimus? Rerum, magnam optio?
+                        <br/><br/>
+                        <b class="faq_content">A.&#160;</b> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis voluptas harum explicabo facere sequi delectus sit odio nesciunt sapiente quaerat debitis ipsum repellendus animi id suscipit accusantium, doloribus blanditiis exercitationem!
+                        <br/><br/><br/>
+                        <b class="faq_color">Q.&#160;</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio eveniet, sed nostrum temporibus delectus ad neque expedita, quos perferendis dignissimos sint maiores qui odit perspiciatis quod possimus? Rerum, magnam optio?
+                        <br/><br/>
+                        <b class="faq_content">A.&#160;</b> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis voluptas harum explicabo facere sequi delectus sit odio nesciunt sapiente quaerat debitis ipsum repellendus animi id suscipit accusantium, doloribus blanditiis exercitationem!
+                    </p>
+                </div>
+            </div>
+        </apex:define>
+    </apex:composition>
+</apex:page>

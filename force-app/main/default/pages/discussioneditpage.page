@@ -1,0 +1,125 @@
+<apex:page controller="ViewContactCtrl" sidebar="false" showHeader="false" standardStylesheets="false">
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <title>View Contacts</title>
+            <c:GenericScriptAndStyleCDN />
+        </head>
+        <body>
+            <div class="container">
+                <div class="my-4 mx-3">
+                    <apex:form >
+                        <apex:outputPanel rendered="{!isAddOrEdit}" layout="none">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="control-label d-block">Discussion Title*</label>
+                                        <apex:inputField styleClass="form-control" value="{!discuss.Discussion_Title__c}" required="true"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Discussion Type*</label>
+                                        <apex:inputField styleClass="form-control" value="{!discuss.Discussion_Type__c}" required="true"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="control-label d-block">Discussion Description*</label>
+                                        <apex:inputField styleClass="form-control" value="{!discuss.Description__c}" required="true"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <apex:actionFunction name="addOrEditDiscussionFn" action="{!addOrEditDiscussion}"/>
+                            <apex:commandButton styleClass="save_btn btn btn-primary" value="{!IF(LOWER($CurrentPage.parameters.action) == LOWER('Add'), 'Add Discussion', 'Edit Discussion')}" reRender="closeModalScriptPanelId"/>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!NOT(isAddOrEdit)}" layout="none">
+                            <div style="padding:30px 20px; text-align:center;">
+                                <p style="font-weight:bold;">
+                                    Are you sure to delete the Discussion Record.
+                                </p>
+
+                                <div class="d-flex justify-content-center">
+                                    <apex:commandButton value="Yes" action="{!deleteDiscussion}" styleClass="btn btn-primary delete_discuss btn_in_modal" />
+                                    <apex:commandButton value="Cancel" styleClass="btn btn-danger cancel_discuss btn_in_modal" reRender="closeModalScriptPanelId"/>
+                                </div>
+                            </div>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel id="closeModalScriptPanelId">
+                            <apex:outputPanel rendered="{!closeModal}" layout="none">
+                                <script>
+                                    let whichModal = '{!actionType}' == 'delete' ? 'Delete Modal' : 'Add Or Edit Modal';
+                                    window.parent.closeModal(whichModal);
+                                </script>
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+                    </apex:form>
+                    <style>
+                        table{
+                            width: 100%;
+                            text-align: center;
+                        }
+                        table, th, td{
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                            padding: 15px 10px;
+                        }
+
+                        table thead tr td{
+                            font-weight: bold;
+                        }
+
+                        .container{
+                            max-width: 1300px;
+                        }
+
+                        h1{
+                            text-transform: uppercase;
+                            font-size: 35px;
+                        }
+                        .errorMsg{
+                            color: red;
+                        }
+                        .btn_in_modal{
+                            margin: 0 15px;
+                            width: 100px;
+                        }
+                        .save_btn{
+                            background-color: #ee4c7c;
+                            border-color: #ee4c7c;
+                            padding: 10px 23px;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            font-size: 14px;
+                            border-radius: 30px;
+                        }
+                        .save_btn:hover{
+                            background-color: #f7356f;
+                            border-color: #f7356f;
+                        }
+                        .save_btn:focus{
+                            border: none;
+                            box-shadow: none;
+                        }
+                    </style>
+                    <script>
+                        $(document).on('click', '.save_btn', function (event) {
+                            event.preventDefault();
+                            addOrEditDiscussionFn();
+                        });
+
+                        $(document).on('click', '.cancel_discuss', function (event) {
+                            window.parent.closeModal('Delete Modal');
+                        });
+                    </script>
+                </div>
+            </div>
+        </body>
+    </html>
+</apex:page>

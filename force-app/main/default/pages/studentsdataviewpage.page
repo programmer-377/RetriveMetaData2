@@ -1,0 +1,121 @@
+<apex:page applyHtmlTag="false" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0" controller="StudentsDataViewCTRL">
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Student Records</title>
+        <c:GenericScriptAndStyleCDN />
+        <style>
+            table{
+                width: 100%;
+                text-align: center;
+            }
+            table, th, td{
+                border: 1px solid black;
+                border-collapse: collapse;
+                padding: 15px 10px;
+            }
+            .button{
+                margin-bottom: 12px;
+                float: right;
+            }
+            .add_student_btn{
+                padding: 10px 30px;
+                margin: 10px;
+                background-color: yellowgreen;
+                border: 3px solid yellowgreen;
+                font-weight: bold;
+            }
+            button:hover{
+                background-color: white;
+                cursor: pointer;
+            }
+            button:focus{
+                outline: none;
+            }
+            form > div{
+                margin-bottom: 10px;
+            }
+            .fields{
+                width: 100%;
+                max-width: 100%;
+                margin: 20px;
+                font-weight: 600;
+            }
+            input{
+                border: 2px solid gray;
+            }
+            .d_o_b{
+                width: 189px;
+            }
+            .save_btn{
+                padding: 5px 15px;
+                background-color: yellowgreen;
+                border: 2px solid yellowgreen;
+                font-weight: bold;
+                margin: 5px 0;
+            }
+            #update> button{
+                padding: 5px 15px;
+                background-color: yellowgreen;
+                border: 2px solid yellowgreen;
+                font-weight: bold;
+                margin: 5px 0;
+                display: none;
+            }
+            a{
+                text-decoration: underline !important;
+            }
+            .edit{
+                color: green !important;
+                margin-bottom: 10px;
+            }
+            .edit:hover{
+                cursor: pointer;
+            }
+            .delete{
+                color: red !important;
+            }
+            .delete:hover{
+                cursor: pointer;
+            }
+            .save{
+                color: darkmagenta !important;
+            }
+            .save:hover{
+                cursor: pointer;
+            }
+            .errorMsg, #errorMsg2{
+                color: red;
+                font-weight: bold;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <div class="button mt-2">
+                <button class="add_student_btn" type="button" data-toggle="modal" data-target="#studentrecord" data-whatever="Add Student">Add Student</button>
+            </div>
+        </div>
+        <table class="student_table">
+            <tbody>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Department Name</th>
+                    <th>College Name</th>
+                    <th>Date of Birth(DD/MM/YYYY)</th>
+                    <th>Age</th>
+                    <th>SSLC Marks</th>
+                    <th>HSC Marks</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Edit/Delete</th>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
+</apex:page>

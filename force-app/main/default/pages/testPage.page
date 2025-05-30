@@ -1,0 +1,29 @@
+<apex:page sidebar="false" showHeader="false" standardController="Account">
+    <apex:tabPanel title="Account">
+        <apex:tab label="Account Section">
+            <apex:form >
+                <apex:pageBlock >
+                    <apex:pageBlockSection >
+                        <apex:outputField value="{!Account.Name}"/>
+                        <apex:outputField value="{!Account.Phone}"/>
+                        <apex:outputField value="{!Account.BillingCity}"/>
+                        <apex:outputField value="{!Account.ShippingState}"/>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+            </apex:form>
+        </apex:tab>
+        <apex:tab label="Contact Section">
+            <apex:form >
+                <apex:pageBlock >
+                    <apex:pageBlockSection title="Contact Details">
+                        <apex:pageBlockTable value="{!Account.contacts}" var="contact">-->     
+                            <apex:inputField value="{!contact.Name}"/>
+                            <apex:inputField value="{!contact.Phone}"/>
+                            <apex:inputField value="{!contact.Email}"/>
+                        </apex:pageBlockTable>     
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+            </apex:form>
+        </apex:tab>      
+    </apex:tabPanel>   
+</apex:page>

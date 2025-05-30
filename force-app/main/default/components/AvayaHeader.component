@@ -1,0 +1,24 @@
+<apex:component >
+    <header class="navbar_bg">
+        <div class="p-2">
+            <div>
+                <nav class="navbar navbar-expand-lg navbar-dark">
+                    <a class="navbar-brand" href="#"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item "><a class="nav-link" href="https://mycreations-developer-edition.ap26.force.com/mysite/avayahome">HOME</a></li>
+                            <li class="nav-item li_disc"><a class="nav-link" href="https://mycreations-developer-edition.ap26.force.com/mysite/avayadestination">DESTINATION</a></li>
+                            <li class="nav-item li_disc"><a class="nav-link" href="#hotel">HOTELS</a></li>
+                            <li class="nav-item li_disc"><a class="nav-link" href="#healthsafety">HEALTH &amp; SAFETY</a></li>
+                            <li class="nav-item li_disc"><a class="nav-link" href="#activities">ACTIVITIES</a></li>
+                            <li class="nav-item li_disc"><a class="nav-link" href="#faq">FAQ</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+</apex:component>

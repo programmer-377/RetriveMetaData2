@@ -1,0 +1,88 @@
+<apex:component >
+    <footer class="footer_bg" id="registerlogin">
+        <div class="container pt-4">
+            <form class="mb-5 ">
+                <div class="row">
+                    <div class="v_line col-md-8">
+                        <h3 class="pt-4 pb-4">REGISTER</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div>
+                                    <input class="register_tab form-control" type="text" placeholder="First Name"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div>
+                                    <input class="register_tab input_tab_last_name form-control" type="text" placeholder="Last Name"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div>
+                                    <input class="register_tab form-control" type="text" placeholder="E-mail Address"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div>
+                                    <input class="register_tab input_tab_last_name form-control" type="text" placeholder="Re-enter E-mail Address"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div>
+                                    <input class="register_tab form-control" type="text" placeholder="Password"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div>
+                                    <input class="register_tab input_tab_last_name form-control" type="text" placeholder="Re-enter Password"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="start_button mt-3">START</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <h3 class="pt-4 pb-4">LOGIN</h3>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div>
+                                    <input class="login_tab form-control" type="text" placeholder="Email Address"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div>
+                                    <input class="login_tab form-control" type="text" placeholder="Password"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div>
+                                    <a class="forget_password text-right d-block p-1" href="#">Forget Password?</a>
+                                    <button class="submit_button mt-2">SUBMIT</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="address_section text-break">
+                <img class="pr-5 pb-5" src="{!URLFOR($Resource.heatskoimages, 'navbarlogo.png')}" alt="Logo"/>
+                <p>
+                    <b>HEAT Kickoff Registration Team</b><br/>
+                    Toll Free: (XXX) XXX-XXXX Local: (XXX) XXX-XXXX<br/>
+                    Email: heatkickoff2016@registration.eeginc.com<br/><br/>
+                    Hours: Monday,Through Friday | 8.00 a.m - 5.00 p.m PST
+                </p>
+            </div>
+        </div>
+    </footer>
+</apex:component>

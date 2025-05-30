@@ -1,0 +1,194 @@
+<apex:page controller="ViewContactCtrl" sidebar="false" showHeader="false" standardStylesheets="false">
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <title>View Contacts</title>
+            <c:GenericScriptAndStyleCDN />
+        </head>
+        <body>
+            <div class="container">
+                <apex:outputPanel rendered="{!IF(AND(con != null, con.Id != null), false, true)}" layout="none">
+                    <p style="color:red; font-weight:bold; text-align:center;font-size:34px;" class="py-5">
+                        Contact Record Not Available
+                    </p>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!IF(AND(con != null, con.Id != null), true, false)}" layout="none">
+                    <p class="py-3"><b>Contact :</b> {!con.Name}</p>
+                    <div class="d-flex justify-content-end mb-2">
+                        <a href="discussioneditpage?conId={!conId}&action=add" class="btn btn-primary add_or_edit custom_button" id="add_discussion">Add Discussion</a>
+                    </div>
+                    <apex:outputPanel rendered="{!IF(AND(lstOfDiscussions != null, lstOfDiscussions.size > 0), false, true )}" layout="none">
+                        <p style="color:red; font-weight:bold; text-align:center;font-size:24px;" class="py-5">
+                            No Discusssion Records Available. If you want to Create Discussion Records Please Click "Add Discussion" Button.
+                        </p>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!IF(AND(lstOfDiscussions != null, lstOfDiscussions.size > 0), true, false )}" layout="none">
+                        <h4 class="pb-3">Discussions</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Serial No</td>
+                                    <td>Discussed Person Name</td>
+                                    <td>Discussion Title</td>
+                                    <td>Discussion Type</td>
+                                    <td>Description</td>
+                                    <td colspan="2">Action</td>
+                                </tr>
+                            </thead>
+                            <apex:variable value="{!1}" var="count"/>
+                            <apex:repeat value="{!lstOfDiscussions}" var="discuss">
+                                <tbody>
+                                    <tr>
+                                        <td class="serial_no">{!count}</td>
+                                        <td>{!discuss.Discussed_Person_Name__c}</td>
+                                        <td>{!discuss.Discussion_Title__c}</td>
+                                        <td>{!discuss.Discussion_Type__c}</td>
+                                        <td>{!discuss.Description__c}</td>
+                                        <td class="text-center"><a href="discussioneditpage?disId={!discuss.Id}&action=edit" class="btn btn-primary add_or_edit">Edit</a></td>
+                                        <td class="text-center"><a href="discussioneditpage?disId={!discuss.Id}&action=delete&accId={!discuss.Contact__r.Account.Id}" class="btn btn-primary delete_discussion">Delete</a></td>
+                                    </tr>
+                                </tbody>
+                                <apex:variable value="{!count+1}" var="count"/>
+                            </apex:repeat>
+                        </table>
+                    </apex:outputPanel>
+
+                    <div class="row py-5">
+                        <div class="col-sm-6">
+                            <a href="/apex/listofcontactrecords?accId={!con.Account.Id}" class="btn btn-primary custom_button">Back to Contacts Page</a>
+                        </div>
+                    </div>
+
+                    <div id="addEdit_discussion_modal"></div>
+                    <div id="delete_Discussion_modal"></div>
+                </apex:outputPanel>
+            </div>
+        </body>
+    </html>
+    <style>
+        table{
+            width: 100%;
+        }
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 15px 10px;
+        }
+
+        table thead tr td{
+            font-weight: bold;
+        }
+
+        .container{
+            max-width: 1300px;
+        }
+
+        h1{
+            text-transform: uppercase;
+            font-size: 35px;
+        }
+        .errorMsg{
+            color: red;
+        }
+
+        thead tr td{
+            text-align: center;
+        }
+
+        .serial_no{
+            text-align: center;
+        }
+
+        body{
+            background-color: #EDF5E1;
+        }
+
+        .custom_button{
+            background-color: #ee4c7c;
+            border-color: #ee4c7c;
+            padding: 10px 23px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            border-radius: 30px;
+        }
+        .custom_button:hover{
+            background-color: #f7356f;
+            border-color: #f7356f;
+        }
+        .custom_button:focus{
+            border: none;
+            box-shadow: none;
+        }
+    </style>
+    <script>
+        $("#addEdit_discussion_modal").iziModal({
+            subtitle: '',
+            iframe: true,
+            iframeHeight: 650,
+            width: 900,
+            appendTo: 'body',
+            overlayClose: false,
+            closeOnEscape: false,
+            radius: 0,
+            borderBottom: false,
+            headerColor: '#ee4c7c',
+            padding: 0,
+            fullscreen: true,
+            bodyOverflow: true,
+        });
+
+        $("#delete_Discussion_modal").iziModal({
+            title: 'Delete Discussion',
+            subtitle: '',
+            iframe: true,
+            iframeHeight: 200,
+            width: 600,
+            appendTo: 'body',
+            overlayClose: false,
+            closeOnEscape: false,
+            radius: 0,
+            borderBottom: false,
+            headerColor: '#ee4c7c',
+            padding: 0,
+            fullscreen: true,
+            bodyOverflow: true,
+        });
+
+        $(document).on('click', '.add_or_edit', function (event)
+        {
+            event.preventDefault();
+
+            if(this.text && this.text == 'Add Discussion')
+            {
+                $('#addEdit_discussion_modal').iziModal('setTitle', 'Add Discussion');
+            }
+            else if(this.text && this.text == 'Edit')
+            {
+                $('#addEdit_discussion_modal').iziModal('setTitle', 'Edit Discussion');
+            }
+
+            $('#addEdit_discussion_modal').iziModal('open', event);
+        });
+
+        function closeModal(modalname)
+        {
+            if(modalname && modalname == 'Delete Modal')
+            {
+                $('#delete_Discussion_modal').iziModal('close');
+            }
+            else
+            {
+                $('#addEdit_discussion_modal').iziModal('close');
+            }
+            location.reload();
+        }
+
+        $(document).on('click', '.delete_discussion', function (event)
+        {
+            event.preventDefault();
+            $('#delete_Discussion_modal').iziModal('open', event);
+        })
+    </script>
+</apex:page>

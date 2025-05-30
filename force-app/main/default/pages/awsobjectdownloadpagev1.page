@@ -1,0 +1,128 @@
+<apex:page controller="AWSObjectDownloader" applyHtmlTag="false" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0">
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <title>AWS S3 Object Download</title>
+            <!-- AWS SDK CDN -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.1040.0/aws-sdk.min.js"></script>
+            <!-- JS ZIP CDN -->
+            <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+            <!-- File Save js CDN -->
+            <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js" integrity="sha256-xoh0y6ov0WULfXcLMoaA6nZfszdgI8w2CEJ/3k8NBIE=" crossorigin="anonymous"></script>
+
+            <!-- Bootstrap 4 CDN -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        </head>
+        <body>
+            <div class="container py-5">
+                <div class="col-sm-6">
+                    <h4 style="text-transform:uppercase;">Download an Entire AWS Folder</h4>
+                    <button class="btn btn-success download_btn" style="margin-left: 58%;">DOWNLOAD</button>
+                </div>
+            </div>
+            <script>
+                // Configure the AWS SDK with your credentials
+                AWS.config.update({
+                    accessKeyId: 'AKIAYS2NUYP5LDAF3ODR',
+                    secretAccessKey: '8J6ei+vFxK9Yl8TnXD61WEoshckhQ7XvmbM4U8om'
+                });
+
+                // Create an S3 object
+                const s3 = new AWS.S3();
+
+                // Set the parameters for listing objects in the bucket
+                const params = {
+                    Bucket: 'muthu-dev-private',
+                    Prefix: 'Test Folder 2'
+                };
+
+                // Create a zip file using jszip
+                let zip = new JSZip();
+
+                document.querySelector('.download_btn').addEventListener('click', function(){
+                    downloadObjectWithZipFormat();
+                });
+
+                function downloadObjectWithZipFormat()
+                {
+                    zip = new JSZip();
+
+                    s3.listObjects(params, (err, data) => {
+                        if (err)
+                        {
+                            console.error(err, err.stack);
+                        }
+                        else
+                        {
+                            for(let index = 0; index < data.Contents.length + 1; index++)
+                            {
+                                if (index < data.Contents.length)
+                                {
+                                    const object = data.Contents[index];
+                                    const objectParams = {
+                                        Bucket: 'muthu-dev-private',
+                                        Key: object.Key,
+                                    };
+
+                                    // Fetch the content of each object
+                                    s3.getObject(objectParams, (getObjectErr, getObjectData) => {
+                                        if (getObjectErr)
+                                        {
+                                            console.error(getObjectErr, getObjectErr.stack);
+                                        }
+                                        else
+                                        {
+                                            // Add the object content to the zip file
+                                            zip.file(object.Key, getObjectData.Body);
+                                            console.log('Test===>');
+                                        }
+                                    });
+                                }
+                                else
+                                {
+                                    setTimeout(() => {
+                                        //downloadZipFile();
+                                        downloadZipFileV1();
+                                    }, 200000);
+                                }
+                            }
+                        }
+                    });
+                }
+
+                /*function downloadZipFile()
+                {
+                    zip.generateAsync({ type: 'blob' })
+                        .then((blob) => {
+                            // Create a download link for the zip file
+                            const downloadLink = document.createElement('a');
+                            downloadLink.href = URL.createObjectURL(blob);
+                            downloadLink.download = 'allObjects.zip';
+
+                            // Trigger the download
+                            document.body.appendChild(downloadLink);
+                            downloadLink.click();
+                            document.body.removeChild(downloadLink);
+                        })
+                    .catch((zipError) => console.error(zipError));
+                }*/
+
+                function downloadZipFileV1()
+                {
+                    console.log('Async Function Called');
+                    zip.generateAsync({type:"blob"}).then(function(content) {
+                        // see FileSaver.js
+                        saveAs(content, "AllObjects.zip");
+                    });
+
+                }
+            </script>
+
+            <h1>====================>{!AccId}</h1>
+        </body>
+    </html>
+</apex:page>

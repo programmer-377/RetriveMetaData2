@@ -1,0 +1,551 @@
+<apex:page applyHtmlTag="false" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0" controller="ManipulateStudentRecord">
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Student Records</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <style>
+            table{
+                width: 100%;
+                text-align: center;
+            }
+            table, th, td{
+                border: 1px solid black;
+                border-collapse: collapse;
+                padding: 15px 10px;
+            }
+            .button{
+                margin-bottom: 12px;
+                float: right;
+            }
+            .add_student_btn{
+                padding: 10px 30px;
+                margin: 10px;
+                background-color: yellowgreen;
+                border: 3px solid yellowgreen;
+                font-weight: bold;
+            }
+            button:hover{
+                background-color: white;
+                cursor: pointer;
+            }
+            button:focus{
+                outline: none;
+            }
+            form > div{
+                margin-bottom: 10px;
+            }
+            .fields{
+                width: 100%;
+                max-width: 100%;
+                margin: 20px;
+                font-weight: 600;
+            }
+            input{
+                border: 2px solid gray;
+            }
+            .d_o_b{
+                width: 189px;
+            }
+            .save_btn{
+                padding: 5px 15px;
+                background-color: yellowgreen;
+                border: 2px solid yellowgreen;
+                font-weight: bold;
+                margin: 5px 0;
+            }
+            #update> button{
+                padding: 5px 15px;
+                background-color: yellowgreen;
+                border: 2px solid yellowgreen;
+                font-weight: bold;
+                margin: 5px 0;
+                display: none;
+            }
+            a{
+                text-decoration: underline !important;
+            }
+            .edit{
+                color: green !important;
+                margin-bottom: 10px;
+            }
+            .edit:hover{
+                cursor: pointer;
+            }
+            .delete{
+                color: red !important;
+            }
+            .delete:hover{
+                cursor: pointer;
+            }
+            .save{
+                color: darkmagenta !important;
+            }
+            .save:hover{
+                cursor: pointer;
+            }
+            .errorMsg, #errorMsg2{
+                color: red;
+                font-weight: bold;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <div class="button mt-2">
+                <button class="add_student_btn" type="button" data-toggle="modal" data-target="#studentrecord" data-whatever="Add Student">Add Student</button>
+            </div>
+            <div class="modal fade" id="studentrecord" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <p class="text-center ml-4 mb-0"><b>STUDENT INFORMATION</b></p>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="fields">
+                                <apex:form onsubmit="">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <span>Student Name</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <apex:inputField type="text" styleClass="stu_name" value="{!student.Student_Name__c}"/>
+                                            <span class ="errorMsg" id="errorMsgName" style="display: none;">Numbers are Not allowed</span>
+                                            <span id="errorMsg2Stu" class="errorMsg" style="display: none;">Please Enter a Value</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <span>Department Name</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <apex:inputField type="text" styleClass="dept_name" value="{!student.Department_Name__c}"/>
+                                            <span class ="errorMsg" id="errorMsgDept" style="display: none;">Speial Characters Not Allowed</span>
+                                            <span id="errorMsg2Dept" class="errorMsg" style="display: none;">Please Enter a Value</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <span>College Name</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <apex:inputField type="text" styleClass="clg_name" value="{!student.College_Name__c }"/>
+                                            <span class ="errorMsg" id="errorMsgClg" style="display: none;">Speial Characters Not Allowed</span>
+                                            <span id="errorMsg2Clg" class="errorMsg" style="display: none;">Please Enter a Value</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <span>D.O.B</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <apex:inputField type="date" styleClass="d_o_b" value="{!student.D_O_B__c}"/>
+                                            <span class ="errorMsg" id="errorMsgAge" style="display: none;">Your Age Must be 17+</span>
+                                            <span id="errorMsg2Age" class="errorMsg" style="display: none;">Please Enter a Value</span>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="row">
+                                        <div class="col-sm-6">
+                                            <span>Age</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="number" class="age"/>
+                                        </div>
+                                    </div> -->
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <span>SSLC Marks</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <apex:inputField type="number" styleClass="sslc_marks" value="{!student.SSLC_Marks__c}"/>
+                                            <span class ="errorMsg" id="errorMsgSslc" style="display: none;">Max Mark Limit Is Five Hundred</span>
+                                            <span id="errorMsg2Sslc" class="errorMsg" style="display: none;">Please Enter a Value</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <span>HSC Marks</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <apex:inputField type="number" styleClass="hsc_marks" value="{!student.HSC_Marks__c}"/>
+                                            <span class ="errorMsg" id="errorMsgHsc" style="display: none;">Max Mark Limit Is Six Hundred</span>
+                                            <span id="errorMsg2Hsc" class="errorMsg" style="display: none;">Please Enter a Value</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <span>Address</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <apex:inputField type="text" styleClass="address" value="{!student.Address__c}"/>
+                                            <span class ="errorMsg" id="errorMsgAddress" style="display: none;">Please Enter a Value</span>
+                                            <span id="errorMsg2Add" class="errorMsg" style="display: none;">Please Enter a Value</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <span>Email</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <apex:inputField type="email" styleClass="email" value="{!student.Email__c}"/>
+                                            <span class ="errorMsg" id="errorMsgEmail" style="display: none;">Invalid Email</span>
+                                            <span id="errorMsg2Mail" class="errorMsg" style="display: none;">Please Enter a Value</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <span>Phone Number</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <apex:inputField type="tel" styleClass="phone" value="{!student.Phone_Number__c}"/>
+                                            <span class ="errorMsg" id="errorMsgPhone" style="display: none;">Invalid Mobile Number</span>
+                                            <span id="errorMsg2Phone" class="errorMsg" style="display: none;">Please Enter a Value</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <apex:commandButton styleClass="save_btn" action="{!save}" onclick="AddRec()" Value="Save"/>
+                                    </div>
+                                    <div class="text-center" type="submit" id="update"></div>
+                                </apex:form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="student_table">
+            <tbody>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Department Name</th>
+                    <th>College Name</th>
+                    <th>Date of Birth(DD/MM/YYYY)</th>
+                    <th>Age</th>
+                    <th>SSLC Marks</th>
+                    <th>HSC Marks</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Edit/Delete</th>
+                </tr>
+            </tbody>
+        </table>
+        <script>
+            // Create a Record
+            function addRec(){
+                if(validation()){
+                    let studentName = document.querySelector('.stu_name').value;
+                    let departmentName = document.querySelector('.dept_name').value;
+                    let collegeName = document.querySelector('.clg_name').value;
+                    let dateOfBirth = document.querySelector('.d_o_b').value;
+                    let sslcMarks = document.querySelector('.sslc_marks').value;
+                    let hscMarks = document.querySelector('.hsc_marks').value;
+                    let address = document.querySelector('.address').value;
+                    let email = document.querySelector('.email').value;
+                    let phone = document.querySelector('.phone').value;
+
+                    let table = document.querySelector('table');
+                    let tableLength = table.rows.length;
+                    let dateof = dateOfBirth.split('-');
+                    let finalDob = dateof[2]+'-'+dateof[1]+'-'+dateof[0];
+
+                    let row = table.insertRow(tableLength).outerHTML = "<tr id='row"+tableLength+"'><td id='student_name"+tableLength+"'>"+studentName+"</td><td id='department_name"+tableLength+"'>"+departmentName+"</td><td id='college_name"+tableLength+"'>"+collegeName+"</td><td id='dob"+tableLength+"'>"+finalDob+"</td><td id='age"+tableLength+"'>"+getAge(finalDob)+"</td><td id='sslc"+tableLength+"'>"+sslcMarks+"</td><td id='hsc"+tableLength+"'>"+hscMarks+"</td><td id='address"+tableLength+"'>"+address+"</td><td id='email"+tableLength+"'>"+email+"</td><td id='phone"+tableLength+"'>"+phone+"<td><input type='button' id='edit_button"+tableLength+"' value='Edit' class='edit' onclick='editRow("+tableLength+")'> <input type='button' id='save_button"+tableLength+"' value='Save' class='save' onclick='addRec("+tableLength+")' style='display: none;'> <input type='button' value='Delete' class='delete' onclick='deleteRow("+tableLength+")'></td></tr>";
+
+                    let button = document.createElement('button');
+                    button.innerText = "Update";
+                    button.classList.add("update"+tableLength,  'update_cls' );
+                    button.style.display = "none";
+                    button.type = "submit";
+                    button.setAttribute("onclick", "updateRec("+tableLength+")");
+                    document.querySelector('#update').appendChild(button);
+
+                    document.querySelector('.stu_name').value = '';
+                    document.querySelector('.dept_name').value =  '';
+                    document.querySelector('.clg_name').value = '';
+                    document.querySelector('.d_o_b').value = '';
+                    document.querySelector('.sslc_marks').value = '';
+                    document.querySelector('.hsc_marks').value = '';
+                    document.querySelector('.address').value = '';
+                    document.querySelector('.email').value = '';
+                    document.querySelector('.phone').value = '';
+
+                    closeModal();
+                }
+            }
+
+            //Get a age
+            function getAge(dob){
+                const date = new Date();
+                const currentYear = date.getFullYear();
+                const birthYear = dob.split("-");
+                return currentYear - Number(birthYear[2]);
+            }
+
+            //Edit a Record
+            function editRow(no){
+                    document.querySelector('.add_student_btn').click();
+                    document.querySelector('.save_btn').style.display = 'none';
+                    document.querySelector('.update'+no).style.display = 'inline';
+                    let errorMsg = document.querySelectorAll('.errorMsg');
+                    for(let i=0; i<=errorMsg.length-1; i++){
+                        errorMsg[i].style.display = 'none';
+                    };
+
+                    let studentName = document.querySelector('#student_name'+no).textContent;
+                    let departmentName = document.querySelector('#department_name'+no).textContent;
+                    let collegeName = document.querySelector('#college_name'+no).textContent;
+                    let dateOfBirth = document.querySelector('#dob'+no).textContent;
+                    let sslcMarks = document.querySelector('#sslc'+no).textContent;
+                    let hscMarks = document.querySelector('#hsc'+no).textContent;
+                    let address = document.querySelector('#address'+no).textContent;
+                    let email = document.querySelector('#email'+no).textContent;
+                    let phone = document.querySelector('#phone'+no).textContent;
+
+                    let dateof = dateOfBirth.split('-');
+                    let finalDob = dateof[2]+'-'+dateof[1]+'-'+dateof[0];
+
+                    document.querySelector('.stu_name').value = studentName;
+                    document.querySelector('.dept_name').value = departmentName;
+                    document.querySelector('.clg_name').value = collegeName;
+                    document.querySelector('.d_o_b').value = finalDob;
+                    document.querySelector('.sslc_marks').value = sslcMarks;
+                    document.querySelector('.hsc_marks').value = hscMarks;
+                    document.querySelector('.address').value = address;
+                    document.querySelector('.email').value = email;
+                    document.querySelector('.phone').value = phone;
+            }
+
+            //Delete a Record
+            function deleteRow(no){
+            document.querySelector('#row'+no).remove();
+            document.querySelector('.update'+no).remove();
+            }
+
+            //Update a Record
+            function updateRec(no){
+                if(validation()){
+                    document.querySelector('.save_btn').style.display = 'inline';
+                    document.querySelector('.update'+no).style.display = 'none';
+
+                    studentName = document.querySelector('.stu_name').value;
+                    departmentName = document.querySelector('.dept_name').value;
+                    collegeName = document.querySelector('.clg_name').value;
+                    dateOfBirth = document.querySelector('.d_o_b').value;
+                    sslcMarks = document.querySelector('.sslc_marks').value;
+                    hscMarks = document.querySelector('.hsc_marks').value;
+                    address = document.querySelector('.address').value;
+                    email = document.querySelector('.email').value;
+                    phone = document.querySelector('.phone').value;
+
+                    let dateof = dateOfBirth.split('-');
+                    let finalDob = dateof[2]+'-'+dateof[1]+'-'+dateof[0];
+
+                    document.querySelector('#student_name'+no).innerHTML = studentName;
+                    document.querySelector('#department_name'+no).innerHTML = departmentName;
+                    document.querySelector('#college_name'+no).innerHTML = collegeName;
+                    document.querySelector('#dob'+no).innerHTML = finalDob;
+                    document.querySelector('#age'+no).innerHTML = getAge(finalDob);
+                    document.querySelector('#sslc'+no).innerHTML = sslcMarks;
+                    document.querySelector('#hsc'+no).innerHTML = hscMarks;
+                    document.querySelector('#address'+no).innerHTML = address;
+                    document.querySelector('#email'+no).innerHTML = email;
+                    document.querySelector('#phone'+no).innerHTML = phone;
+
+                    document.querySelector('.stu_name').value = '';
+                    document.querySelector('.dept_name').value =  '';
+                    document.querySelector('.clg_name').value = '';
+                    document.querySelector('.d_o_b').value = '';
+                    document.querySelector('.sslc_marks').value = '';
+                    document.querySelector('.hsc_marks').value = '';
+                    document.querySelector('.address').value = '';
+                    document.querySelector('.email').value = '';
+                    document.querySelector('.phone').value = '';
+                    closeModal();
+                }
+            }
+
+            //Close a Modal After Edit and Add a Record
+            function closeModal(){
+                document.querySelector('.close').click();
+            }
+
+            //Custom Validation
+            //a Name must be not contains a Number
+            function validation(){
+                let studentName = document.querySelector('.stu_name').value;
+                let departmentName = document.querySelector('.dept_name').value;
+                let collegeName = document.querySelector('.clg_name').value;
+                let dateOfBirth = document.querySelector('.d_o_b').value;
+                let sslcMarks = document.querySelector('.sslc_marks').value;
+                let hscMarks = document.querySelector('.hsc_marks').value;
+                let address = document.querySelector('.address').value;
+                let email = document.querySelector('.email').value;
+                let phone = document.querySelector('.phone').value;
+                let errorMsg = document.querySelectorAll('.errorMsg');
+
+                //Name is Contains Only Alphabet
+                let isContainNumber = /\d/.test(studentName);
+                if(studentName != ''){
+                    document.querySelector('#errorMsg2Stu').style.display = 'none';
+                    if(isContainNumber){
+                        document.querySelector('#errorMsgName').style.display = 'block';
+                    } else{
+                        document.querySelector('#errorMsgName').style.display = 'none';
+                    }
+                } else{
+                    document.querySelector('#errorMsgName').style.display = 'none';
+                    document.querySelector('#errorMsg2Stu').style.display = 'block';
+                }
+
+                //If Department Name is Not Empty
+                if(departmentName != ''){
+                    document.querySelector('#errorMsg2Dept').style.display = 'none';
+                    if(isContainSpecialChar(departmentName)){
+                        document.querySelector('#errorMsgDept').style.display = 'block';
+                    } else{
+                        document.querySelector('#errorMsgDept').style.display = 'none';
+                    }
+                } else{
+                    document.querySelector('#errorMsgDept').style.display = 'none';
+                    document.querySelector('#errorMsg2Dept').style.display = 'block';
+                }
+
+                //If College Name is Not Empty
+                if(collegeName != ''){
+                    document.querySelector('#errorMsg2Clg').style.display = 'none';
+                    if(isContainSpecialChar(collegeName)){
+                        document.querySelector('#errorMsgClg').style.display = 'block';
+                    }else{
+                        document.querySelector('#errorMsgClg').style.display = 'none';
+                    }
+                } else{
+                    document.querySelector('#errorMsgClg').style.display = 'none';
+                    document.querySelector('#errorMsg2Clg').style.display = 'block';
+                }
+
+                //Date of Birth Validation
+                let getDate = dateOfBirth.split('-');
+                let date = new Date();
+                let currentYear = date.getFullYear();
+
+                if(dateOfBirth != ''){
+                    document.querySelector('#errorMsg2Age').style.display = 'none';
+                    if(currentYear - Number(getDate[0]) < 17 ){
+                        document.querySelector('#errorMsgAge').style.display = 'block';
+                    } else{
+                        document.querySelector('#errorMsgAge').style.display = 'none';
+                    }
+                } else{
+                    document.querySelector('#errorMsgAge').style.display = 'none';
+                    document.querySelector('#errorMsg2Age').style.display = 'block';
+                }
+
+                //SSLC Max Mark is 500
+                if(sslcMarks != ''){
+                    document.querySelector('#errorMsg2Sslc').style.display = 'none';
+                    if(Number(sslcMarks) > 500){
+                        document.querySelector('#errorMsgSslc').style.display = 'block';
+                    } else{
+                        document.querySelector('#errorMsgSslc').style.display = 'none';
+                    }
+                } else{
+                    document.querySelector('#errorMsgSslc').style.display = 'none';
+                    document.querySelector('#errorMsg2Sslc').style.display = 'block';
+                }
+
+                //HSC Max Mark is 600
+                if(hscMarks != ''){
+                    document.querySelector('#errorMsg2Hsc').style.display = 'none';
+                    if(Number(hscMarks) > 600){
+                        document.querySelector('#errorMsgHsc').style.display = 'block';
+                    } else{
+                        document.querySelector('#errorMsgHsc').style.display = 'none';
+                    }
+                } else{
+                    document.querySelector('#errorMsgHsc').style.display = 'none';
+                    document.querySelector('#errorMsg2Hsc').style.display = 'block';
+                }
+
+                //Address Validation
+                if(address == ''){
+                    document.querySelector('#errorMsgAddress').style.display = 'block';
+                } else{
+                    document.querySelector('#errorMsgAddress').style.display = 'none';
+                }
+
+                //Email Validation
+                let checkValidEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email);
+                if(email != ''){
+                    document.querySelector('#errorMsg2Mail').style.display = 'none';
+                    if(!checkValidEmail){
+                        document.querySelector('#errorMsgEmail').style.display = 'block';
+                    } else{
+                        document.querySelector('#errorMsgEmail').style.display = 'none';
+                    }
+                } else{
+                    document.querySelector('#errorMsgEmail').style.display = 'none';
+                    document.querySelector('#errorMsg2Mail').style.display = 'block';
+                }
+
+                //Mobile Number Validation
+                if(phone != ''){
+                    document.querySelector('#errorMsg2Phone').style.display = 'none';
+                    if(phone.length < 10 || phone.length > 15){
+                        document.querySelector('#errorMsgPhone').style.display = 'block';
+                    } else{
+                        document.querySelector('#errorMsgPhone').style.display = 'none';
+                    }
+                } else{
+                    document.querySelector('#errorMsgPhone').style.display = 'none';
+                    document.querySelector('#errorMsg2Phone').style.display = 'block';
+                }
+
+                //Check Number of Error Messages
+                let count = 0;
+                for(let i=0; i<=errorMsg.length-1; i++){
+                    if(errorMsg[i].style.display == 'block'){
+                        count++;
+                    }
+                }
+
+                if(count == 0){
+                    return true;
+                } else{
+                    return false;
+                }
+            }
+
+            function isContainSpecialChar(name){
+                return /[^a-zA-Z0-9 ]/.test(name);
+            }
+
+            document.querySelector('.add_student_btn').addEventListener('click', function(){
+                document.querySelector('.stu_name').value = '';
+                document.querySelector('.dept_name').value =  '';
+                document.querySelector('.clg_name').value = '';
+                document.querySelector('.d_o_b').value = '';
+                document.querySelector('.sslc_marks').value = '';
+                document.querySelector('.hsc_marks').value = '';
+                document.querySelector('.address').value = '';
+                document.querySelector('.email').value = '';
+                document.querySelector('.phone').value = '';
+                document.querySelector('.save_btn').style.display = 'inline';
+
+                let updateCls = document.querySelectorAll('.update_cls');
+                for(let i=0; i<=updateCls.length-1; i++){
+                    updateCls[i].style.display = 'none';
+                }
+            });
+        </script>
+    </body>
+</html>
+</apex:page>

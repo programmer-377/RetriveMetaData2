@@ -1,0 +1,46 @@
+<apex:page applyHtmlTag="false" controller="EMSHomeController" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0">
+    <apex:composition template="employeemanagementtemplate">
+        <apex:define name="body">
+            <div class="contaniner">
+                <apex:form id="formId">
+                    <div>
+                        <h3>Registration</h3>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="email"></label>
+                                <apex:inputField id="email"/>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="acceptpolicy"></label>
+                                <apex:inputField id="acceptpolicy"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="regpass"></label>
+                                <apex:inputField id="regpass"/>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="regconpass"></label>
+                                <apex:inputField id="regconpass"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Log In</h3>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="username"></label>
+                                <apex:inputField id="username"/>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="password"></label>
+                                <apex:inputField id="password"/>
+                            </div>
+                        </div>
+                    </div>
+                </apex:form>
+            </div>
+        </apex:define>
+    </apex:composition>
+</apex:page>

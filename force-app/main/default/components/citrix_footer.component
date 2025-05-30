@@ -1,0 +1,15 @@
+<apex:component >
+    <footer>
+        <div class="footer_container">
+            <div class="footer_sec">
+                <img src="{!URLFOR($Resource.citrixpageimages, 'contact.png')}" alt="contact_icon"/>
+                <h1>CONTACT</h1>
+            </div>
+            <div class="container footer_content text-center">
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam eaque facilis explicabo ullam fuga voluptatem labore delectus quam aliquid accusantium quae, laudantium tenetur quos doloribus eligendi provident ducimus in magnam reprehenderit. Eum aliquid sequi esse magnam doloremque, iure temporibus, suscipit harum sunt error rerum amet cum totam ut sint odio!
+                </p>
+            </div>
+        </div>
+    </footer>
+</apex:component>

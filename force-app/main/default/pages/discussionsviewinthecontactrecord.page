@@ -1,0 +1,43 @@
+<apex:page standardController="Contact" extensions="DiscussionsViewInTheContactRecord" showHeader="false" sidebar="false" standardStylesheets="false">
+    <!-- <h1 style="font-weight:800; color:red;font-size:40px;">this is test visualforce page</h1> -->
+     <apex:form >
+        <div style="margin:6px 0;">
+            <a href="{!$Site.BaseUrl}/a0d/e?CF{!$Label.DiscussionObjectContactId}={!Contact.Name}&CF{!$Label.DiscussionObjectContactId}_lkid={!Contact.Id}&retURL=/{!Contact.Id}" class="btn" style="text-decoration:none;" target="_parent">New Air Travel Connection</a>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Discussion Link</th>
+                    <th>Contact</th>
+                    <th>Description</th>
+                    <th>Discussed Person Name</th>
+                    <th>Discussed Title</th>
+                    <th>Discussion Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <apex:repeat value="{!lstOfDiscussion}" var="discuss">
+                    <tr>
+                        <td><a href="/{!discuss.Id}">{!discuss.Name}</a></td>
+                        <td>{!discuss.Contact__c}</td>
+                        <td>{!discuss.Description__c}</td>
+                        <td>{!discuss.Discussed_Person_Name__c}</td>
+                        <td>{!discuss.Discussion_Title__c}</td>
+                        <td>{!discuss.Discussion_Type__c}</td>
+                    </tr>
+                </apex:repeat>
+            </tbody>
+        </table>
+     </apex:form>
+     <style>
+         table{
+                width: 100%;
+                text-align: center;
+            }
+            table, th, td{
+                border: 1px solid black;
+                border-collapse: collapse;
+                padding: 15px 10px;
+            }
+     </style>
+</apex:page>

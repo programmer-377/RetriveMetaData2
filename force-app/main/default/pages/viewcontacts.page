@@ -1,0 +1,85 @@
+<apex:page extensions="ViewContactCtrl" sidebar="false" showHeader="false" standardController="Account" standardStylesheets="false">
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <title>View Contacts</title>
+            <!-- <C:GenericScriptAndStyleCDN/> -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        </head>
+        <body>
+            <div class="container">
+                <apex:outputPanel rendered="{!IF(AND(lstOfContacts != null, lstOfContacts.size > 0), false, true)}">
+                    <p style="color:red; font-weight:bold; text-align:center;">
+                        Contact Records Not Available
+                    </p>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!IF(AND(lstOfContacts != null, lstOfContacts.size > 0), true, false)}">
+                    <h1 class="py-3">Contact Records</h1>
+                    <p class="mb-3"><b>Account :</b> <a href="/{!acc.Id}">{!acc.Name}</a></p>
+                    <apex:variable value="{!1}" var="count"/>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Serial No</td>
+                                <td>Name</td>
+                                <td>Contact</td>
+                                <td>Email</td>
+                                <td>Phone</td>
+                                <td>Fax</td>
+                                <td>Title</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!lstOfContacts}" var="con">
+                                <tr>
+                                    <td>{!count}</td>
+                                    <td>{!con.Name}</td>
+                                    <td><a href="apex/newpagename/id?{!con.Id}">{!con.Name}</a></td>
+                                    <td><a href="mailto:{!con.Email}">{!con.Email}</a></td>
+                                    <td><a href="tel:{!con.Phone}">{!con.Phone}</a></td>
+                                    <td><a href="fax:{!con.Fax}">{!con.Fax}</a></td>
+                                    <td>{!con.Title}</td>
+                                </tr>
+                                <apex:variable value="{!count+1}" var="count"/>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+
+                    <div class="row py-5">
+                        <div class="col-sm-6">
+                            <a href="/{!acc.Id}" class="btn btn-primary">Back</a>
+                        </div>
+                    </div>
+                </apex:outputPanel>
+            </div>
+        </body>
+    </html>
+    <style>
+        table{
+            width: 100%;
+            text-align: center;
+        }
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 15px 10px;
+        }
+
+        table thead tr td{
+            font-weight: bold;
+        }
+
+        .container{
+            max-width: 1300px;
+        }
+
+        h1{
+            text-transform: uppercase;
+            font-size: 35px;
+        }
+    </style>
+</apex:page>

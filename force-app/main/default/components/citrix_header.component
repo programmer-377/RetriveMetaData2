@@ -1,0 +1,27 @@
+<apex:component >
+    <div class="header_bg">
+        <div class="header_logo">
+            <img src="{!URLFOR($Resource.citrixpageimages, 'headerlogo.png')}" alt="logo"/>
+        </div>
+        <div class="header_text text-center">
+            <h1>JOIN US IN ROME</h1>
+            <p>CITREX EXECUTIVE ADVISTORY BOARD MEETING 2018</p>
+        </div>
+        <div class="nav_bar_bg">
+            <nav class="navbar navbar-expand-lg navbar-dark dropup">
+                <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-nav collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav collapse navbar-collapse text-center" id="collapsibleNavbar">
+                        <li class="nav-item text-break"><a class="nav-link nav_bar_content" href="#destination">DESTINATION</a></li>
+                        <li class="nav-item text-break"><a class="nav-link nav_bar_content" href="#hotelinfo">HOTEL INFORMATION</a></li>
+                        <li class="nav-item text-break"><a class="nav-link nav_bar_content" href="#dailyagenda">DAILY AGENDA</a></li>
+                        <li class="nav-item text-break"><a class="nav-link nav_bar_content" href="#travelinfo">TRAVEL INFORMATION</a></li>
+                        <li class="nav-item text-break"><a class="nav-link nav_bar_content" href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </nav>  
+        </div>
+    </div>
+</apex:component>

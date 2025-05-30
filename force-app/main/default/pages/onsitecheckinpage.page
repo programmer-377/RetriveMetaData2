@@ -1,0 +1,155 @@
+<apex:page standardController="Event__c" extensions="OnSiteCheckInController" standardStylesheets="false" showHeader="false" sidebar="false" title="On Site CheckIn Page">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <div class="container py-5">
+        <apex:form id="formid">
+            <div class="row mb-4">
+                <div class="col-sm-6">
+                    <span><b style="font-size: 18px;">Search By Name, Email</b></span><br/>
+                    <apex:inputText value="{!searchByNameandEmail}"/>
+                    <apex:commandButton action="{!searchByContact}" rerender="formid, alertMeassage" value="Search" styleClass="ml-3 btn btn-success"/>
+                </div>
+            </div>
+            <apex:outputText rendered="{!noDataFound}" value="No Data found our DataBase" id="alertMeassage" style="font-weight: bold; color:red"/>
+
+            <apex:outputPanel id="registrationDetailsPanelId">
+                <apex:outputPanel rendered="{!isRecordsAvailable}">
+                    <h5 class="mt-4 mb-2 text-center text-uppercase"><b>Search Results</b></h5>
+                    <apex:dataTable value="{!registrationRecords}" var="registration" styleClass="table table-hover table-bordered">
+                        <apex:column width="20%">
+                            <apex:facet name="header">First Name</apex:facet>
+                            <apex:commandLink action="{!searchByRegistrationName}" value="{!registration.Registrant_Details__r.FirstName}" rerender="registrationDetailsPanelId, registrantPanelId" id="commandLink1" status="searchActionStatusId">
+                                <apex:param name="contactId1" assignTo="{!selectContactId}" value="{!registration.Registrant_Details__r.Id}"/>
+                            </apex:commandLink>
+                        </apex:column>
+                        <apex:column width="20%">
+                            <apex:facet name="header">Last Name</apex:facet>
+                            <apex:commandLink action="{!searchByRegistrationName}" value="{!registration.Registrant_Details__r.LastName}" rerender="registrationDetailsPanelId, registrantPanelId" id="commandLink2" status="searchActionStatusId">
+                                <apex:param name="contactId" assignTo="{!selectContactId}" value="{!registration.Registrant_Details__r.Id}"/>
+                            </apex:commandLink>
+                        </apex:column>
+                        <apex:column width="20%">
+                            <apex:facet name="header">Event Name</apex:facet>
+                            <apex:outputText value="{!registration.Event__r.Name}"/>
+                        </apex:column>
+                        <apex:column width="20%">
+                            <apex:facet name="header">Email</apex:facet>
+                            <apex:outputText value="{!registration.Registrant_Details__r.Email}"/>
+                        </apex:column>
+                        <apex:column width="20%">
+                            <apex:facet name="header">Status</apex:facet>
+                            <apex:outputText value="{!registration.Status__c}"/>
+                        </apex:column>
+                    </apex:dataTable>
+                </apex:outputPanel>
+
+                <apex:outputPanel id="registrantPanelId">
+                    <apex:outputPanel rendered="{!isContactInformation}">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h5 class="mt-4 mb-2 text-center text-uppercase"><b>Attendee Information</b></h5>
+                                <table class="table table-hover table-bordered">
+                                    <tr>
+                                        <td>First Name</td>
+                                        <td><apex:outputField value="{!con.FirstName}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Name</td>
+                                        <td><apex:outputField value="{!con.LastName}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td><apex:outputField value="{!con.Email}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phone</td>
+                                        <td><apex:outputField value="{!con.Phone}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Staus</td>
+                                        <td><apex:outputField value="{!reg.Status__c}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Event</td>
+                                        <td><apex:outputField value="{!reg.Event__r.Name}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Attnding Event</td>
+                                        <td><apex:outputField value="{!reg.Attending_Event__c}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>You will Bring a Guest</td>
+                                        <td><apex:outputField value="{!reg.You_will_Bring_a_Guest__c}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>You Will Need Special Accomodations</td>
+                                        <td><apex:outputField value="{!reg.You_Will_Need_Special_Accomodations__c}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Notes</td>
+                                        <td><apex:inputField value="{!note.body}"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="mt-4 mb-2 text-center text-uppercase"><b>Information Quick Links to Update the fields</b></h5>
+                                <table class="table table-hover table-bordered">
+                                    <tr>
+                                        <td>Email</td>
+                                        <td><apex:outputField value="{!con.Email}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Registration Link</td>
+                                        <td><apex:outputLink value="/{!reg.id}" target="_blank">{!reg.Name}</apex:outputLink></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contact Link</td>
+                                        <td><apex:outputLink value="/{!con.id}" target="_blank">{!con.Name}</apex:outputLink></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <apex:commandButton action="{!checkIn}" rerender="formid, successMessage" value="Check In" styleClass="mt-4 mb-4 btn btn-success text-center"/> <br/>
+                            <apex:outputText rendered="{!checkInSuccessMessage}" value="You Are Successfully CheckIn the Event Thanks!" id="successMessage" style="font-weight: bold; color:green"/>
+                        </div>
+
+                        <div class="notesSection">
+                            <h5 class="mt-4 mb-2 text-center text-uppercase"><b>Notes</b></h5>
+                            <apex:dataTable value="{!noteList}" var="notes" styleClass="table table-hover table-bordered">
+                                <apex:column width="25%">
+                                    <apex:facet name="header">Title</apex:facet>
+                                    <apex:outputText value="{!notes.title}"/>
+                                </apex:column>
+                                <apex:column width="25%">
+                                    <apex:facet name="header">Body</apex:facet>
+                                    <apex:outputText value="{!notes.body}"/>
+                                </apex:column>
+                                <apex:column width="25%">
+                                    <apex:facet name="header">Related to</apex:facet>
+                                    <apex:outputLink value="/{!notes.ParentId}" target="_blank">{!notes.Parent.Name}</apex:outputLink>
+                                </apex:column>
+                                <apex:column width="25%">
+                                    <apex:facet name="header">Created Date</apex:facet>
+                                    <apex:outputText value="{!notes.CreatedDate}"/>
+                                </apex:column>
+                            </apex:dataTable>
+                        </div>
+                	</apex:outputPanel>
+                </apex:outputPanel>
+            </apex:outputPanel>
+        </apex:form>
+    </div>
+	<style>
+        table{
+            width: 100%;
+        }
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 15px 10px;
+        }
+    </style>
+</apex:page>

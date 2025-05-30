@@ -1,0 +1,21 @@
+<apex:page applyHtmlTag="false" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0" controller="RegMain">
+    <apex:composition template="registrationtesttemplate">
+        <apex:define name="body">   
+            <div class="container">
+                <apex:outputPanel rendered="{!NOT(isGuestAttending)}" layout="none">
+                    <!-- <p>
+                        You Don't have access this page
+                    </p> -->
+                </apex:outputPanel>
+                <!-- <apex:outputPanel rendered="{!isGuestAttending}" layout="none"> -->
+                    <h1 style="text-align: center">
+                        Guest Information
+                    </h1>
+                    <apex:form >
+                        <apex:commandButton action="{!SaveAndGoToPageThree}" value="Save & Continue"/>
+                    </apex:form>
+                <!-- </apex:outputPanel>    -->
+            </div>
+        </apex:define>
+    </apex:composition>
+</apex:page>

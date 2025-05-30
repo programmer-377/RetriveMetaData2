@@ -1,0 +1,32 @@
+<apex:page >
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            async function getData() {
+              const url = "https://muthu-dev.s3.ap-south-1.amazonaws.com/testfolder/testnew.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYS2NUYP5BRW5JX2E%2F20240812%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20240812T080654Z&X-Amz-Expires=1600&X-Amz-Signature=2e784c890777bee0915a2195789c9c2c9ea15a6c40750d8ff63af40fe1f29b93&X-Amz-SignedHeaders=host";
+              try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                  throw new Error(`Response status: ${response.status}`);
+                }
+
+                console.log('response ' + response);
+                // ...
+              } catch (error) {
+                console.error(error.message);
+              }
+
+
+
+            }
+
+            getData();
+          </script>
+    </body>
+    </html>
+</apex:page>

@@ -1,0 +1,56 @@
+<apex:page applyHtmlTag="false" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0">
+    <apex:composition template="avayatemplate">
+        <apex:define name="body">
+            <div>
+                <div class="home_bg">
+                    <div class="home_logo _container">
+                        <img src="{!URLFOR($Resource.avayaimages, 'headerlogo.png')}" alt=""/>
+                    </div>
+                </div>
+            </div>
+            <div class="welcome_bg" id="home">
+                <div class="_container pt-5">
+                    <div class="h_line mb-3">
+                        <h1>WELCOME</h1>
+                    </div>
+                    <p>Congratulations and welcome to the Circle of Excellence for fiscal year 2022! The Circle of Excellence proram rewards top performing Avaya sales personnel from each theater, based on exceptional acheivement in total bookings from TBC through TBC.
+                        <br/><br/>
+                        As a top performer, you and a guest are invited on an exclusive trip to Four Seasons Safari Lodge Serengeti, in Tanzania.
+                        <br/><br/>
+                        You and an adult guest will enjoy:
+                    </p>
+                    <li>Round-trip airface to Tanzania, and ground Transportation between the airport and program hotel</li>
+                    <li>Five-star luxury accommodations at the Four Seasons Serengeti</li>
+                    <li>Private Game Drives</li>
+                    <li>As Well as many more surprises onsite</li>
+                    <br/>
+                    <p>
+                        Thanks you for everything you do to drive success for Avaya, our customers and our partners.
+                        <br/><br/>
+                        See you in the Circle!
+                        <br/><br/>
+                    </p>
+                </div>
+            </div>
+            <div class="destination_bg">
+                <div class="container_destin">
+                    <div class="destination_div">
+                        <div class="h_line mb-3">
+                            <h1>DESTINATION</h1>
+                        </div>
+                        <p>
+                            November 28 through December 3, Avaya will host winners from FRY'22 in Tanzania. Winners will fly to Tanzania and stay their first nights in Arusha at the <a>GranMelia.</a> From Arusha, Winners will be transferred on chartered flights to the Serengeti National Forest, and hosted at the <a>Four Seasons Safari Lodge Serengeti.</a>
+                            <br/><br/>
+                            For additional information, please visit the <a>Destination Page.</a>
+                        </p>
+                        <div class="text-right">
+                            <a href="" class="pr-2">MORE</a><b/>
+                            <img src="{!URLFOR($Resource.avayaimages, 'plusicon.png')}" alt=""/>
+                        </div>
+                    </div>
+                    <img class="destin_car_img destin_car_div" src="{!URLFOR($Resource.avayaimages, 'destin-sec-car.png')}" alt="car-image"/>
+                </div>
+            </div>
+        </apex:define>
+    </apex:composition>
+</apex:page>
