@@ -28,3 +28,9 @@ jobs:
           # FORCE_PUSH: false
           MANIFEST_DIR  : manifest/package.xml
           # SCRIPT_DIRECTORY: scripts/callApexSendEmailMethod.apex
+
+      - name: Send Email
+        shell: bash
+        run: |
+            sf org login sfdx-url --set-default --sfdx-url-file <(echo "${{ inputs.SFDX_AUTH_URL }}")
+            sf apex run --file scripts/apex/callApexSendEmailMethod.apex
