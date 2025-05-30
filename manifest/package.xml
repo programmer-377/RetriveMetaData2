@@ -16,5 +16,9 @@
         <members>*</members>
         <name>ApexTrigger</name>
     </types>
+    <types>
+        <members>*</members>
+        <name>CustomObject</name>
+    </types>
     <version>59.0</version>
 </Package>
