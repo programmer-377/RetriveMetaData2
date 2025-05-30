@@ -3,7 +3,7 @@ name: Test Schedule Job
 on:
   schedule:
     # UNCOMMENT TO ENABLE
-    - cron: "*/10 * * * *"
+    - cron: "30 5 * * *"
 
   # Allows manual triggering from the GitHub Actions UI
   # workflow_dispatch:
