@@ -2,7 +2,6 @@ name: Test Schedule Job
 
 on:
   schedule:
-    # Scheduled to run at midnight UTC every day
     # UNCOMMENT TO ENABLE
     - cron: "*/5 * * * *"
 
