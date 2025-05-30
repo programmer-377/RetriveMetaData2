@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Are_You_Extend_Your_Trip__c</fullName>
+    <externalId>false</externalId>
+    <label>Are You Extend Your Trip</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pre Extend</fullName>
+                <default>false</default>
+                <label>Pre Extend</label>
+            </value>
+            <value>
+                <fullName>Post Extend</fullName>
+                <default>false</default>
+                <label>Post Extend</label>
+            </value>
+            <value>
+                <fullName>Pre and Post Extend</fullName>
+                <default>false</default>
+                <label>Pre and Post Extend</label>
+            </value>
+            <value>
+                <fullName>No Extend</fullName>
+                <default>false</default>
+                <label>No Extend</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
