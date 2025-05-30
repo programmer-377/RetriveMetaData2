@@ -13,3 +13,7 @@ jobs:
   backup_metadata:
     runs-on: ubuntu-latest
     environment: production
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
