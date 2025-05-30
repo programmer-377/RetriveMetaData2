@@ -1,5 +1,6 @@
 public class BloodGroup{
     public BloodGroup(){
+        System.debug('Hiiii');
         // Empty Constrctor
     }
 
