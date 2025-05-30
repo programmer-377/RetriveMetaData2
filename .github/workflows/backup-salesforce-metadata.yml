@@ -32,5 +32,5 @@ jobs:
       - name: Send Email
         shell: bash
         run: |
-            sf org login sfdx-url --set-default --sfdx-url-file <(echo "${{ inputs.SFDX_AUTH_URL }}")
+            sf org login sfdx-url --set-default --sfdx-url-file <(echo "${{ secrets.SFDX_AUTH_URL }}")
             sf apex run --file scripts/apex/callApexSendEmailMethod.apex
