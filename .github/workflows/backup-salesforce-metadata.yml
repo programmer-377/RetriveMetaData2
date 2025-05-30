@@ -25,6 +25,6 @@ jobs:
           SFDX_AUTH_URL: ${{ secrets.SFDX_AUTH_URL }}
           # SOURCE_DIR: force-app/main/default/classes
           # BRANCH_NAME: main
-          FORCE_PUSH: false
+          # FORCE_PUSH: false
           MANIFEST_DIR  : manifest/package.xml
           SCRIPT_DIRECTORY: scripts/callApexSendEmailMethod.apex
